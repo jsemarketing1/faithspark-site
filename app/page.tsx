@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'FaithSpark — Free Christian Faith App | AI Devotionals & Bible Reader',
     description: 'Free AI devotionals, full Bible reader, community prayer, guided prayer sessions, sleep stories, Scripture Art, and your personal AI faith companion — all on your iPhone.',
     url: 'https://faithspark.app',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'FaithSpark — Free Christian Faith App' }],
+    images: [{ url: '/Faithspark1200x630.jpg', width: 1200, height: 630, alt: 'FaithSpark — Free Christian Faith App' }],
   },
 };
 

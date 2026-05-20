@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'FaithSpark',
     locale: 'en_US',
+    images: [{ url: '/Faithspark1200x630.jpg', width: 1200, height: 630, alt: 'FaithSpark — Free Christian Faith App' }],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
