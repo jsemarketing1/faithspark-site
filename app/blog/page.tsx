@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 import type { Metadata } from 'next';
 import DarkNav from '@/components/DarkNav';
 import DarkFooter from '@/components/DarkFooter';
