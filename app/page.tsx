@@ -9,21 +9,49 @@ import BlogCard from '@/components/BlogCard';
 import { getAllPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
-  title: 'FaithSpark — Faith That Knows Your Name',
-  description: 'The most personal faith app ever built. Free AI devotionals, community prayer, Bible reader, guided prayer, Scripture Art, sleep stories, and your AI faith companion Spark.',
+  title: 'FaithSpark — Free Christian Faith App | AI Devotionals & Bible Reader',
+  description: 'FaithSpark is a free Christian faith app for iPhone with AI devotionals, Bible reader, community prayer board, guided prayer sessions, sleep stories, Scripture Art, and your personal AI faith companion Spark.',
   alternates: { canonical: 'https://faithspark.app' },
   openGraph: {
-    title: 'FaithSpark — Faith That Knows Your Name',
-    description: 'Free AI devotionals, Bible reader, guided prayer, and your personal AI faith companion Spark.',
+    title: 'FaithSpark — Free Christian Faith App | AI Devotionals & Bible Reader',
+    description: 'Free AI devotionals, full Bible reader, community prayer, guided prayer sessions, sleep stories, Scripture Art, and your personal AI faith companion — all on your iPhone.',
     url: 'https://faithspark.app',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'FaithSpark — Free Christian Faith App' }],
   },
 };
 
 export default function HomePage() {
   const latestPosts = getAllPosts().slice(0, 3);
 
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'FaithSpark',
+      operatingSystem: 'iOS',
+      applicationCategory: 'LifestyleApplication',
+      description: 'A free Christian faith app with AI devotionals, Bible reader, community prayer board, guided prayer sessions, sleep stories, Scripture Art, and personal AI faith companion Spark.',
+      url: 'https://faithspark.app',
+      downloadUrl: 'https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      author: { '@type': 'Organization', name: 'Mind Garden Press' },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'FaithSpark',
+      url: 'https://faithspark.app',
+      description: 'Faith app built by Mind Garden Press — AI devotionals, Bible reader, prayer, and personal faith companion.',
+      contactPoint: { '@type': 'ContactPoint', email: 'support@faithspark.app', contactType: 'customer support' },
+    },
+  ];
+
   return (
     <div className="home-wrap">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <DarkNav />
       <Particles />
 
