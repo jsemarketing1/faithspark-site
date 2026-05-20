@@ -1,0 +1,140 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import DarkNav from '@/components/DarkNav';
+import DarkFooter from '@/components/DarkFooter';
+import BlogCard from '@/components/BlogCard';
+import { getAllPosts, getPost } from '@/lib/posts';
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return getAllPosts().map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = getPost(params.slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: `https://faithspark.app/blog/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `https://faithspark.app/blog/${post.slug}`,
+      type: 'article',
+      publishedTime: post.date,
+      images: post.image ? [{ url: post.image }] : [],
+    },
+  };
+}
+
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = getPost(params.slug);
+  if (!post) notFound();
+
+  const allPosts = getAllPosts();
+  const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    image: post.image || undefined,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'Joe Ye',
+      description: 'Father of 6, truck driver, Assembly of God believer, and creator of FaithSpark.',
+      url: 'https://faithspark.app',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'FaithSpark',
+      url: 'https://faithspark.app',
+    },
+    mainEntityOfPage: `https://faithspark.app/blog/${post.slug}`,
+  };
+
+  return (
+    <div className="blog-wrap">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DarkNav />
+
+      {post.image ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={post.image} alt={post.title} className="blog-hero-img" />
+      ) : (
+        <div className="blog-hero-placeholder">✝️</div>
+      )}
+
+      <div className="blog-article-wrap">
+        <nav className="blog-breadcrumb" aria-label="Breadcrumb">
+          <Link href="/">Home</Link>
+          <span>›</span>
+          <Link href="/blog">Blog</Link>
+          <span>›</span>
+          <span style={{ color: 'rgba(255,255,255,0.6)' }}>{post.title}</span>
+        </nav>
+
+        {post.tags?.length > 0 && (
+          <div className="blog-tags">
+            {post.tags.map((tag) => (
+              <span key={tag} className="blog-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        <h1 className="blog-article-title">{post.title}</h1>
+
+        <div className="blog-article-meta">
+          <span>📅 {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          <span>⏱ {post.readingTime}</span>
+          <span>✍️ Joe Ye</span>
+        </div>
+
+        <article className="blog-prose">
+          <MDXRemote source={post.content} />
+        </article>
+
+        {/* Internal links / related posts */}
+        {related.length > 0 && (
+          <div className="blog-related">
+            <h2 className="blog-related-title">You Might Also Like</h2>
+            <div className="blog-related-grid">
+              {related.map((p) => (
+                <BlogCard key={p.slug} post={p} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div style={{ marginTop: '60px', textAlign: 'center' }}>
+          <Link href="/blog" className="btn-gold">← Back to All Articles</Link>
+        </div>
+
+        <div style={{ marginTop: '60px', padding: '32px', background: 'rgba(200,118,42,0.08)', border: '1px solid rgba(200,118,42,0.25)', borderRadius: '20px', textAlign: 'center' }}>
+          <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '18px', color: '#ffffff', marginBottom: '12px' }}>Want a Faith Companion in Your Pocket?</p>
+          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '15px', marginBottom: '24px', lineHeight: '1.7' }}>
+            FaithSpark gives you daily devotionals, guided prayer, a full Bible reader, and Spark — your personal AI faith companion. All free.
+          </p>
+          <a
+            href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724"
+            className="btn-gold"
+          >
+            🍎 Download FaithSpark — Free
+          </a>
+        </div>
+      </div>
+
+      <DarkFooter />
+    </div>
+  );
+}
