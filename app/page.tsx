@@ -6,6 +6,7 @@ import DarkNav from '@/components/DarkNav';
 import DarkFooter from '@/components/DarkFooter';
 import Particles from '@/components/Particles';
 import BlogCard from '@/components/BlogCard';
+import MobileSplash from '@/components/MobileSplash';
 import { getAllPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
@@ -48,6 +49,7 @@ export default function HomePage() {
 
   return (
     <div className="home-wrap">
+      <MobileSplash />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
