@@ -87,7 +87,7 @@ export default function TermsPage() {
         <p>These Terms are governed by the laws of the State of Texas, United States.</p>
         <h2>14. Contact Us</h2>
         <ul>
-          <li><strong>Email:</strong> support@faithspark.app</li>
+          <li><strong>Email:</strong> faithsparkhome@gmail.com</li>
           <li><strong>Developer:</strong> Mind Garden Press</li>
         </ul>
       </div>

@@ -43,7 +43,7 @@ export default function HomePage() {
       name: 'FaithSpark',
       url: 'https://faithspark.app',
       description: 'Faith app built by Mind Garden Press — AI devotionals, Bible reader, prayer, and personal faith companion.',
-      contactPoint: { '@type': 'ContactPoint', email: 'support@faithspark.app', contactType: 'customer support' },
+      contactPoint: { '@type': 'ContactPoint', email: 'faithsparkhome@gmail.com', contactType: 'customer support' },
     },
   ];
 

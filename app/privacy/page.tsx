@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           Your privacy matters deeply to us. FaithSpark is a faith-based app built on trust — and we take the responsibility of handling your personal information seriously. This policy explains what we collect, why we collect it, and how we protect it.
         </div>
         <h2>1. Who We Are</h2>
-        <p>FaithSpark is developed and operated by Mind Garden Press. If you have any questions about this Privacy Policy, you can contact us at <strong>support@faithspark.app</strong>.</p>
+        <p>FaithSpark is developed and operated by Mind Garden Press. If you have any questions about this Privacy Policy, you can contact us at <strong>faithsparkhome@gmail.com</strong>.</p>
         <h2>2. Information We Collect</h2>
         <p>We collect information you provide directly to us when you use FaithSpark:</p>
         <ul>
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
         <p>When you post a prayer request to the Community Prayer Board it becomes visible to other FaithSpark users. You may choose to post anonymously. You can delete your own posts at any time.</p>
         <p>Prayer group content is only visible to members of that specific group who have the invite code.</p>
         <h2>7. Children&apos;s Privacy</h2>
-        <p>FaithSpark is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13 please contact us immediately at support@faithspark.app.</p>
+        <p>FaithSpark is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13 please contact us immediately at faithsparkhome@gmail.com.</p>
         <h2>8. Your Rights</h2>
         <p>You have the right to:</p>
         <ul>
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
           <li>Export your journal entries and personal data</li>
           <li>Opt out of push notifications at any time through your device settings</li>
         </ul>
-        <p>To exercise any of these rights please contact us at support@faithspark.app.</p>
+        <p>To exercise any of these rights please contact us at faithsparkhome@gmail.com.</p>
         <h2>9. Data Retention</h2>
         <p>We retain your account information for as long as your account is active. If you delete your account we will delete your personal data within 30 days.</p>
         <h2>10. Changes to This Policy</h2>
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
         <h2>11. Contact Us</h2>
         <p>If you have questions or concerns about this Privacy Policy please contact us:</p>
         <ul>
-          <li><strong>Email:</strong> support@faithspark.app</li>
+          <li><strong>Email:</strong> faithsparkhome@gmail.com</li>
           <li><strong>Developer:</strong> Mind Garden Press</li>
         </ul>
       </div>
