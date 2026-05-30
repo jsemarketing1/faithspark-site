@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import LightNav from '@/components/LightNav';
-import LightFooter from '@/components/LightFooter';
 
 export const metadata: Metadata = {
   title: 'Delete Your Account',
@@ -10,60 +8,144 @@ export const metadata: Metadata = {
 
 export default function DeleteAccountPage() {
   return (
-    <div className="legal-wrap">
-      <LightNav />
-      <div className="lp-container-sm">
-        <div className="page-label">Account Management</div>
-        <h1>Delete Your Account</h1>
-        <div className="lp-intro">
-          You have the right to delete your FaithSpark account and all associated data at any time. This page explains how to request account deletion and what happens to your data when you do.
-        </div>
-        <h2>How to Delete Your Account</h2>
-        <p>You can delete your account directly from within the FaithSpark app:</p>
-        <ol>
-          <li>Open the <strong>FaithSpark app</strong> on your device</li>
-          <li>Tap your <strong>profile photo</strong> in the top right corner</li>
-          <li>Scroll to the bottom of your Profile screen</li>
-          <li>Tap <strong>&ldquo;Delete Account&rdquo;</strong></li>
-          <li>Confirm your decision when prompted</li>
-          <li>Your account and data will be permanently deleted</li>
-        </ol>
-        <h2>Request Deletion by Email</h2>
-        <p>If you are unable to access the app or prefer to request deletion by email, contact us at:</p>
-        <a
-          href="mailto:support@faithspark.app?subject=Account%20Deletion%20Request"
-          className="email-btn"
-        >
-          📧 Email support@faithspark.app
-        </a>
-        <p style={{ marginTop: '16px' }}>Please include the email address associated with your FaithSpark account. We will process your deletion request within 30 days.</p>
-        <h2>What Data Is Deleted</h2>
-        <p>When you delete your account the following data is permanently removed:</p>
-        <div className="data-box">
-          {[
-            { label: 'Account credentials (email and password)', status: 'deleted', text: '✓ Deleted immediately' },
-            { label: 'Profile information (name, preferences, life details)', status: 'deleted', text: '✓ Deleted immediately' },
-            { label: 'Faith journal entries', status: 'deleted', text: '✓ Deleted immediately' },
-            { label: 'Saved devotionals', status: 'deleted', text: '✓ Deleted immediately' },
-            { label: 'Prayer board posts and comments', status: 'deleted', text: '✓ Deleted within 30 days' },
-            { label: 'Prayer group memberships', status: 'deleted', text: '✓ Deleted immediately' },
-            { label: 'Progress and trophy data', status: 'deleted', text: '✓ Deleted immediately' },
-            { label: 'Subscription information', status: 'retained', text: 'Retained per Apple/Google billing requirements' },
-          ].map((row) => (
-            <div className="data-row" key={row.label}>
-              <span className="data-label">{row.label}</span>
-              <span className={row.status === 'deleted' ? 'data-deleted' : 'data-retained'}>{row.text}</span>
+    <>
+      <style>{`
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #f8f5f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .da-page { min-height: 100vh; background: #f8f5f0; padding: 40px 20px; }
+        .da-card {
+          background: white;
+          border-radius: 16px;
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 40px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .da-header { text-align: center; margin-bottom: 36px; }
+        .da-flame { font-size: 48px; margin-bottom: 16px; }
+        .da-title { font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+        .da-subtitle { color: #666; font-size: 15px; line-height: 1.5; }
+        .da-section-title { font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 20px; }
+        .da-steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+        .da-step { display: flex; gap: 16px; align-items: flex-start; }
+        .da-step-num {
+          background: #7A1E3A;
+          color: white;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          font-size: 14px;
+          flex-shrink: 0;
+        }
+        .da-step-content { flex: 1; }
+        .da-step-content strong { display: block; color: #1a1a1a; margin-bottom: 4px; font-size: 15px; }
+        .da-step-content p { color: #666; font-size: 14px; line-height: 1.5; }
+        .da-warning {
+          background: #fff8e1;
+          border: 1px solid #f59e0b;
+          border-radius: 12px;
+          padding: 16px 20px;
+          margin-bottom: 36px;
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+        }
+        .da-warning-icon { font-size: 20px; flex-shrink: 0; }
+        .da-warning p { color: #92400e; font-size: 14px; line-height: 1.5; }
+        .da-contact {
+          text-align: center;
+          padding: 24px;
+          background: #f8f5f0;
+          border-radius: 12px;
+          margin-bottom: 32px;
+        }
+        .da-contact p { color: #666; font-size: 14px; margin-bottom: 12px; }
+        .da-contact a {
+          display: inline-block;
+          background: #7A1E3A;
+          color: white;
+          padding: 12px 24px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 14px;
+        }
+        .da-contact a:hover { background: #6a1a32; }
+        .da-footer { text-align: center; padding-top: 24px; border-top: 1px solid #eee; }
+        .da-footer a { color: #7A1E3A; text-decoration: none; font-size: 13px; margin: 0 12px; }
+        .da-footer a:hover { text-decoration: underline; }
+        @media (max-width: 480px) {
+          .da-card { padding: 28px 20px; }
+          .da-title { font-size: 22px; }
+        }
+      `}</style>
+
+      <div className="da-page">
+        <div className="da-card">
+          <div className="da-header">
+            <div className="da-flame">🔥</div>
+            <h1 className="da-title">Delete Your FaithSpark Account</h1>
+            <p className="da-subtitle">
+              We&apos;re sorry to see you go. Follow the steps below to permanently delete your account and all associated data.
+            </p>
+          </div>
+
+          <h2 className="da-section-title">How to Delete Your Account</h2>
+          <div className="da-steps">
+            <div className="da-step">
+              <div className="da-step-num">1</div>
+              <div className="da-step-content">
+                <strong>Open the FaithSpark App</strong>
+                <p>Launch the FaithSpark app on your iOS device.</p>
+              </div>
             </div>
-          ))}
+            <div className="da-step">
+              <div className="da-step-num">2</div>
+              <div className="da-step-content">
+                <strong>Go to Your Profile</strong>
+                <p>Tap your profile photo in the top right corner of the home screen.</p>
+              </div>
+            </div>
+            <div className="da-step">
+              <div className="da-step-num">3</div>
+              <div className="da-step-content">
+                <strong>Scroll to the Bottom</strong>
+                <p>Scroll all the way down on your Profile screen to find account options.</p>
+              </div>
+            </div>
+            <div className="da-step">
+              <div className="da-step-num">4</div>
+              <div className="da-step-content">
+                <strong>Tap &ldquo;Delete Account&rdquo;</strong>
+                <p>Tap the Delete Account button and confirm your decision when prompted. Your account and all data will be permanently deleted.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="da-warning">
+            <span className="da-warning-icon">⚠️</span>
+            <p>
+              <strong>This action is permanent and cannot be undone.</strong> All your data including your profile, journal entries, saved devotionals, prayer history, and progress will be permanently deleted and cannot be recovered.
+            </p>
+          </div>
+
+          <div className="da-contact">
+            <p>Can&apos;t access the app? Contact us and we&apos;ll delete your account manually within 30 days.</p>
+            <a href="mailto:mindgardenpress1@gmail.com?subject=Account%20Deletion%20Request">
+              📧 Contact Support
+            </a>
+          </div>
+
+          <div className="da-footer">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
         </div>
-        <div className="lp-note">
-          <strong>Note:</strong> Subscription and billing records may be retained by Apple or Google according to their respective platform policies. FaithSpark does not retain payment information directly.
-        </div>
-        <h2>Contact Us</h2>
-        <p>If you have questions about account deletion or your data rights, contact us at <strong>support@faithspark.app</strong>.</p>
-        <p>Developer: Mind Garden Press</p>
       </div>
-      <LightFooter />
-    </div>
+    </>
   );
 }
