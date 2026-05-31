@@ -13,13 +13,9 @@ export default function DarkFooter() {
         <li><a href="mailto:faithsparkhome@gmail.com">Support</a></li>
       </ul>
       <p className="ft-copy">© 2026 Mind Garden Press. All rights reserved.</p>
-      <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px' }}>
+      <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'center' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/blog/joey.png" alt="Joey, creator of FaithSpark" style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover', border: '2px solid rgba(200,118,42,0.5)' }} />
-        <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>
-          Made with faith by <strong style={{ color: 'rgba(255,255,255,0.7)' }}>Joey</strong><br />
-          Father, truck driver &amp; creator of FaithSpark
-        </p>
+        <img src="/blog/joey.png" alt="Joey, creator of FaithSpark" style={{ maxWidth: 260, width: '100%' }} />
       </div>
     </footer>
   );
