@@ -1,20 +1,15 @@
-export const dynamic = 'force-static';
-
 import type { Metadata } from 'next';
 import DarkNav from '@/components/DarkNav';
 import DarkFooter from '@/components/DarkFooter';
 import BlogCard from '@/components/BlogCard';
 import { getAllPosts } from '@/lib/posts';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
-  title: 'Faith Blog — Real Stories, Biblical Wisdom',
-  description: 'A faith blog written from the heart — first-person stories about prayer, Scripture, family, and finding God in everyday life as a dad, husband, and truck driver.',
+  title: 'Blog — Faith, Devotionals & Scripture',
+  description: 'Personal devotionals, Psalm studies, prayer guides, and faith reflections from the creator of FaithSpark.',
   alternates: { canonical: 'https://faithspark.app/blog' },
-  openGraph: {
-    title: 'FaithSpark Blog — Real Faith. Real Life.',
-    description: 'First-person stories about prayer, Scripture, family, and trusting God from a dad, husband, and truck driver still figuring it out.',
-    url: 'https://faithspark.app/blog',
-  },
 };
 
 export default function BlogIndexPage() {
@@ -24,23 +19,27 @@ export default function BlogIndexPage() {
     <div className="blog-index-wrap">
       <DarkNav />
       <div className="blog-index-hero">
-        <p className="sec-eye">Faith Journal</p>
-        <h1 className="sec-title">Real Faith.<br /><span style={{ color: '#C8762A' }}>Real Life.</span></h1>
-        <p className="sec-sub">
-          First-person stories about prayer, Scripture, family, and trusting God —
-          written by a dad, husband, and truck driver who is still figuring it out one day at a time.
+        <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 12, letterSpacing: '0.25em', color: '#C8762A', marginBottom: 16, textTransform: 'uppercase' }}>
+          Faith &amp; Devotionals
+        </p>
+        <h1 style={{ fontFamily: 'var(--font-cinzel)', fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, color: '#fff', marginBottom: 16, lineHeight: 1.15 }}>
+          The FaithSpark Blog
+        </h1>
+        <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 16, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
+          Personal devotionals, Psalm studies, prayer guides, and faith reflections — written from the road and the Word.
         </p>
       </div>
 
-      {posts.length > 0 ? (
+      {posts.length === 0 ? (
+        <div style={{ textAlign: 'center', padding: '80px 24px', color: 'rgba(255,255,255,0.4)' }}>
+          <p style={{ fontSize: 48, marginBottom: 16 }}>✝️</p>
+          <p style={{ fontSize: 16 }}>Articles coming soon.</p>
+        </div>
+      ) : (
         <div className="blog-index-grid">
           {posts.map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}
-        </div>
-      ) : (
-        <div className="blog-empty">
-          <p>Articles coming soon — check back shortly.</p>
         </div>
       )}
 

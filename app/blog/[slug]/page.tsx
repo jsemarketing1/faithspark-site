@@ -1,20 +1,18 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import DarkNav from '@/components/DarkNav';
 import DarkFooter from '@/components/DarkFooter';
 import BlogCard from '@/components/BlogCard';
 import { getAllPosts, getPost } from '@/lib/posts';
 
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPost(slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -31,8 +29,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPost(slug);
   if (!post) notFound();
 
   const allPosts = getAllPosts();
@@ -100,9 +99,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <span>✍️ Joe Ye</span>
         </div>
 
-        <article className="blog-prose">
-          <MDXRemote source={post.content} />
-        </article>
+        <article
+          className="blog-prose"
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+        />
 
         {/* Internal links / related posts */}
         {related.length > 0 && (

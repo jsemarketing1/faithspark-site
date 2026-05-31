@@ -2,6 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
 
 export interface PostMeta {
   title: string;
@@ -15,6 +18,7 @@ export interface PostMeta {
 
 export interface Post extends PostMeta {
   content: string;
+  contentHtml: string;
 }
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog');
@@ -39,12 +43,16 @@ export function getAllPosts(): PostMeta[] {
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-export function getPost(slug: string): Post | null {
+export async function getPost(slug: string): Promise<Post | null> {
   const filepath = path.join(BLOG_DIR, `${slug}.mdx`);
   if (!fs.existsSync(filepath)) return null;
   const raw = fs.readFileSync(filepath, 'utf-8');
   const { data, content } = matter(raw);
   const stats = readingTime(content);
+  const processed = await remark()
+    .use(remarkGfm)
+    .use(remarkHtml, { sanitize: false })
+    .process(content);
   return {
     title: data.title ?? '',
     description: data.description ?? '',
@@ -54,5 +62,6 @@ export function getPost(slug: string): Post | null {
     image: data.image ?? '',
     readingTime: stats.text,
     content,
+    contentHtml: processed.toString(),
   } as Post;
 }
