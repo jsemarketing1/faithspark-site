@@ -133,15 +133,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </a>
         </div>
 
-        {/* Author photo */}
-        <div style={{ marginTop: '64px', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', gap: '20px' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/blog/joey.png" alt="Joey and his wife" style={{ width: 90, height: 90, borderRadius: '50%', objectFit: 'cover', border: '2px solid rgba(200,118,42,0.5)', flexShrink: 0 }} />
-          <div>
-            <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '15px', color: '#ffffff', marginBottom: '6px' }}>Joey</p>
-            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>Father of 6, truck driver, Assembly of God believer, and creator of FaithSpark. Writing from the road and the Word.</p>
-          </div>
-        </div>
       </div>
 
       <DarkFooter />
