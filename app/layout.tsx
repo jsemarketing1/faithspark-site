@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Cinzel, Lato, Playfair_Display, Outfit } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const cinzel = Cinzel({ subsets: ['latin'], weight: ['400', '600', '700'], variable: '--font-cinzel', display: 'swap' });
@@ -32,6 +33,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${cinzel.variable} ${lato.variable} ${playfair.variable} ${outfit.variable}`}
     >
       <body>{children}</body>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-M6RC4Y96HN" strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M6RC4Y96HN');
+      `}</Script>
     </html>
   );
 }
