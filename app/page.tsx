@@ -159,27 +159,16 @@ export default function HomePage() {
           <p className="sec-eye" style={{ textAlign: 'center' }}>See It In Action</p>
           <h2 className="sec-title" style={{ textAlign: 'center' }}>Watch FaithSpark<br /><span style={{ color: '#C8762A' }}>Come Alive</span></h2>
           <p className="sec-sub" style={{ textAlign: 'center', margin: '0 auto 56px' }}>Real features. Real faith. See exactly what FaithSpark can do for you.</p>
-          <div className="videos-grid">
-            {[
-              { id: 'olpC7yV8a4Q', title: 'FaithSpark Overview', label: 'Meet FaithSpark', desc: 'See how personalized AI devotionals and Spark work together every day.' },
-              { id: '8B7tfej_1DI', title: 'Spark AI Companion', label: 'Spark AI Companion', desc: 'Your personal faith companion who listens, remembers, and grows with you.' },
-              { id: 'eowEBVvuFoo', title: 'Bible Reader & Prayer Board', label: 'Bible & Prayer Board', desc: 'Full KJV Bible reader, verse explanations, bookmarks, and community prayer.' },
-              { id: 'nig474nbu2Y', title: 'FaithSpark Latest Update', label: "What's New", desc: 'Bible verse explanations, bookmarks, and reading position saved automatically.', badge: true },
-            ].map((v) => (
-              <div className="video-card" key={v.id}>
-                <iframe
-                  src={`https://www.youtube.com/embed/${v.id}`}
-                  title={v.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-                <div className="video-card-label">
-                  {v.badge && <span className="video-update-badge">Latest Update</span>}
-                  <strong>{v.label}</strong>
-                  {v.desc}
-                </div>
-              </div>
-            ))}
+          <div style={{ maxWidth: 800, margin: '0 auto', width: '100%' }}>
+            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
+              <iframe
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                src="https://www.youtube.com/embed/_sYIsqZkhaM"
+                title="FaithSpark — See It In Action"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </section>
