@@ -6,6 +6,11 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
 export interface PostMeta {
   title: string;
   description: string;
@@ -14,6 +19,7 @@ export interface PostMeta {
   tags: string[];
   image: string;
   readingTime: string;
+  faqs: FAQ[];
 }
 
 export interface Post extends PostMeta {
@@ -38,6 +44,7 @@ export function getAllPosts(): PostMeta[] {
       tags: data.tags ?? [],
       image: data.image ?? '',
       readingTime: stats.text,
+      faqs: data.faqs ?? [],
     } as PostMeta;
   });
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -61,6 +68,7 @@ export async function getPost(slug: string): Promise<Post | null> {
     tags: data.tags ?? [],
     image: data.image ?? '',
     readingTime: stats.text,
+    faqs: data.faqs ?? [],
     content,
     contentHtml: processed.toString(),
   } as Post;

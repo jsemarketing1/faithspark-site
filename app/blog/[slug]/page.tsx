@@ -59,12 +59,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     mainEntityOfPage: `https://faithspark.app/blog/${post.slug}`,
   };
 
+  const faqJsonLd = post.faqs?.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: post.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  } : null;
+
   return (
     <div className="blog-wrap">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <DarkNav />
 
       {post.image ? (
@@ -111,6 +127,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="blog-related-grid">
               {related.map((p) => (
                 <BlogCard key={p.slug} post={p} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {post.faqs?.length > 0 && (
+          <div className="faq-section">
+            <h2 className="faq-title">Frequently Asked Questions</h2>
+            <div className="faq-list">
+              {post.faqs.map((faq, i) => (
+                <details key={i} className="faq-item">
+                  <summary className="faq-question">{faq.question}</summary>
+                  <p className="faq-answer">{faq.answer}</p>
+                </details>
               ))}
             </div>
           </div>

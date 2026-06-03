@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(del index.html privacy.html terms.html download.html delete-account.html)"
+      "Bash(del index.html privacy.html terms.html download.html delete-account.html)",
+      "WebSearch"
     ]
   }
 }
