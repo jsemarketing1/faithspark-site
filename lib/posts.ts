@@ -5,6 +5,7 @@ import readingTime from 'reading-time';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
+import { remarkScriptureOverlay } from './remark-scripture-overlay';
 
 export interface FAQ {
   question: string;
@@ -58,6 +59,7 @@ export async function getPost(slug: string): Promise<Post | null> {
   const stats = readingTime(content);
   const processed = await remark()
     .use(remarkGfm)
+    .use(remarkScriptureOverlay)
     .use(remarkHtml, { sanitize: false })
     .process(content);
   return {
