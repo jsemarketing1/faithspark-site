@@ -37,10 +37,10 @@ body { overflow-x: hidden; }
 .nav-right { display: flex; align-items: center; gap: 24px; }
 .nav-right a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; letter-spacing: 0.1em; transition: color 0.2s; }
 .nav-right a:hover { color: #C8762A; }
-.nav-social { display: flex; align-items: center; gap: 14px; margin: 0 auto; }
-.nav-social-icon { color: rgba(255,255,255,0.55); display: flex; align-items: center; transition: color 0.2s, transform 0.2s; }
-.nav-social-icon:hover { color: #C8762A; transform: translateY(-1px); }
-.light-social .nav-social-icon { color: rgba(80,60,40,0.55); }
+.nav-social { display: flex; align-items: center; gap: 28px; position: absolute; left: 50%; transform: translateX(-50%); }
+.nav-social-icon { color: rgba(255,255,255,0.6); display: flex; align-items: center; transition: color 0.2s, transform 0.2s; }
+.nav-social-icon:hover { color: #C8762A; transform: translateY(-2px); }
+.light-social .nav-social-icon { color: rgba(80,60,40,0.5); }
 .light-social .nav-social-icon:hover { color: #C8762A; }
 .nav-btn {
   background: #C8762A;
