@@ -23,7 +23,9 @@
       "Bash(node -e ' *)",
       "Bash(node --use-system-ca -e ' *)",
       "Bash(powershell.exe -Command ' *)",
-      "Bash(node --use-system-ca -e \"require\\('unist-util-visit'\\); console.log\\('ok'\\)\")"
+      "Bash(node --use-system-ca -e \"require\\('unist-util-visit'\\); console.log\\('ok'\\)\")",
+      "Bash(grep -l \"href=\\\\\"/\\\\\"\" content/blog/*.mdx)",
+      "Bash(grep -rL \"href=\\\\\"/\\\\\"\" content/blog/*.mdx)"
     ],
     "additionalDirectories": [
       "c:\\Users\\joeye\\.claude\\projects\\c--Users-joeye-Desktop-faithspark-site\\memory"

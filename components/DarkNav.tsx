@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import MobileNav from './MobileNav';
 
 const socialLinks = [
   {
@@ -51,6 +52,7 @@ export default function DarkNav() {
         <Link href="/blog">Blog</Link>
         <Link href="/#download" className="nav-btn">Download Free</Link>
       </div>
+      <MobileNav />
     </nav>
   );
 }

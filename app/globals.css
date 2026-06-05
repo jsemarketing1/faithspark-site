@@ -483,10 +483,34 @@ body { overflow-x: hidden; }
 /* REVEAL (keep text visible) */
 .reveal { opacity: 1 !important; transform: none !important; }
 
+/* HAMBURGER BUTTON */
+.hamburger-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1001; }
+.hamburger-btn span { display: block; width: 24px; height: 2px; background: rgba(255,255,255,0.85); border-radius: 2px; transition: all 0.2s; }
+.hamburger-btn:hover span { background: #C8762A; }
+
+/* MOBILE MENU */
+.mobile-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9998; backdrop-filter: blur(4px); }
+.mobile-menu {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 280px;
+  background: #0d0800; border-left: 1px solid rgba(200,118,42,0.2);
+  z-index: 9999; display: flex; flex-direction: column;
+  padding: 28px 28px 40px; gap: 0;
+}
+.mobile-menu-close { background: none; border: none; color: rgba(255,255,255,0.5); font-size: 22px; cursor: pointer; align-self: flex-end; padding: 0; margin-bottom: 28px; line-height: 1; }
+.mobile-menu-close:hover { color: #C8762A; }
+.mobile-menu-logo { font-size: 24px; margin-bottom: 36px; }
+.mobile-menu-links { display: flex; flex-direction: column; gap: 0; margin-bottom: 28px; }
+.mobile-menu-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 16px; letter-spacing: 0.08em; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+.mobile-menu-links a:hover { color: #C8762A; }
+.mobile-menu-dl { display: block; text-align: center; padding: 14px 20px; font-size: 14px; border-radius: 50px; margin-bottom: 32px; }
+.mobile-menu-social { display: flex; gap: 24px; justify-content: center; }
+
 /* HOME RESPONSIVE */
 @media(max-width:720px) {
   .nav-right a:not(.nav-btn) { display: none; }
+  .nav-right .nav-btn { font-size: 11px !important; padding: 8px 14px !important; }
   .nav-social { display: none; }
+  .hamburger-btn { display: flex; }
   .spark-inner { grid-template-columns: 1fr; gap: 40px; }
   .spark-right { order: -1; }
   .spark-left .sec-title, .spark-left .sec-sub, .spark-left .sec-eye { text-align: center; }
