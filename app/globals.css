@@ -489,21 +489,43 @@ body { overflow-x: hidden; }
 .hamburger-btn:hover span { background: #C8762A; }
 
 /* MOBILE MENU */
-.mobile-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9998; backdrop-filter: blur(4px); }
+.mobile-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9998; backdrop-filter: blur(4px); }
 .mobile-menu {
-  position: fixed; top: 0; right: 0; bottom: 0; width: 280px;
-  background: #0d0800; border-left: 1px solid rgba(200,118,42,0.2);
-  z-index: 9999; display: flex; flex-direction: column;
-  padding: 28px 28px 40px; gap: 0;
+  position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 85vw);
+  background: #0d0800; border-left: 1px solid rgba(200,118,42,0.25);
+  z-index: 9999; display: flex; flex-direction: column; align-items: center;
+  padding: 20px 24px 44px; text-align: center; overflow-y: auto;
 }
-.mobile-menu-close { background: none; border: none; color: rgba(255,255,255,0.5); font-size: 22px; cursor: pointer; align-self: flex-end; padding: 0; margin-bottom: 28px; line-height: 1; }
-.mobile-menu-close:hover { color: #C8762A; }
-.mobile-menu-logo { font-size: 24px; margin-bottom: 36px; }
-.mobile-menu-links { display: flex; flex-direction: column; gap: 0; margin-bottom: 28px; }
-.mobile-menu-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 16px; letter-spacing: 0.08em; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+.mobile-menu-close {
+  align-self: flex-end;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #ffffff;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.mobile-menu-close:hover { background: rgba(200,118,42,0.2); border-color: #C8762A; color: #C8762A; }
+.mobile-menu-logo { font-size: 26px; margin-bottom: 32px; text-decoration: none; }
+.mobile-menu-links { display: flex; flex-direction: column; width: 100%; margin-bottom: 28px; }
+.mobile-menu-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 17px; letter-spacing: 0.08em; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.07); transition: color 0.2s; text-align: center; }
+.mobile-menu-links a:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
 .mobile-menu-links a:hover { color: #C8762A; }
-.mobile-menu-dl { display: block; text-align: center; padding: 14px 20px; font-size: 14px; border-radius: 50px; margin-bottom: 32px; }
-.mobile-menu-social { display: flex; gap: 24px; justify-content: center; }
+.mobile-menu-dl {
+  display: block; text-align: center; width: 100%;
+  padding: 15px 20px; font-size: 15px; font-weight: 700;
+  border-radius: 50px; margin-bottom: 32px;
+  background: linear-gradient(135deg,#C8762A,#E8943A);
+  color: #ffffff; text-decoration: none;
+  box-shadow: 0 6px 20px rgba(200,118,42,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mobile-menu-dl:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(200,118,42,0.55); }
+.mobile-menu-social { display: flex; gap: 28px; justify-content: center; }
 
 /* HOME RESPONSIVE */
 @media(max-width:720px) {
@@ -766,6 +788,8 @@ body { overflow-x: hidden; }
 
 @media(max-width:720px) {
   .blog-index-wrap nav .nav-right a:not(.nav-btn) { display: none; }
+  .blog-index-wrap nav .nav-social { display: none; }
+  .blog-index-wrap nav .hamburger-btn { display: flex; }
   .blog-index-wrap footer { flex-direction: column; text-align: center; }
   .blog-index-wrap footer .ft-links { justify-content: center; }
 }
@@ -782,6 +806,8 @@ body { overflow-x: hidden; }
   .blog-prose img { max-width: 100%; height: auto; }
   .blog-prose blockquote { padding: 14px 16px; margin: 24px 0; }
   .blog-wrap nav .nav-right a:not(.nav-btn) { display: none; }
+  .blog-wrap nav .nav-social { display: none; }
+  .blog-wrap nav .hamburger-btn { display: flex; }
   .blog-wrap footer { flex-direction: column; text-align: center; }
   .blog-wrap footer .ft-links { justify-content: center; }
   .blog-breadcrumb { font-size: 11px; gap: 4px; flex-wrap: wrap; }
