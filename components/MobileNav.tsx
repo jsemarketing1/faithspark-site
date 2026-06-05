@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 
 const socialLinks = [
@@ -36,6 +37,138 @@ const socialLinks = [
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const close = () => setOpen(false);
+
+  const menu = (
+    <>
+      {/* Overlay */}
+      <div
+        style={{
+          position: 'fixed', inset: 0,
+          background: 'rgba(0,0,0,0.65)',
+          zIndex: 99997,
+        }}
+        onClick={close}
+      />
+
+      {/* Drawer */}
+      <div
+        style={{
+          position: 'fixed', top: 0, right: 0, bottom: 0,
+          width: 'min(300px, 85vw)',
+          background: '#0d0800',
+          borderLeft: '1px solid rgba(200,118,42,0.25)',
+          zIndex: 99998,
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          padding: '20px 24px 44px',
+          textAlign: 'center',
+          overflowY: 'auto',
+        }}
+      >
+        {/* X button */}
+        <button
+          onClick={close}
+          aria-label="Close menu"
+          style={{
+            alignSelf: 'flex-end',
+            background: 'rgba(255,255,255,0.1)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            color: '#ffffff',
+            width: 40, height: 40,
+            borderRadius: '50%',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer',
+            marginBottom: 28,
+            flexShrink: 0,
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+
+        {/* Logo */}
+        <Link
+          href="/"
+          onClick={close}
+          style={{
+            fontFamily: 'var(--font-cinzel), serif',
+            fontSize: 26, textDecoration: 'none',
+            marginBottom: 32,
+          }}
+        >
+          <span style={{ color: '#ffffff', fontWeight: 400 }}>Faith</span>
+          <span style={{ color: '#C8762A', fontWeight: 700 }}>Spark</span>
+        </Link>
+
+        {/* Nav links */}
+        <div style={{ width: '100%', marginBottom: 28 }}>
+          {[
+            { href: '/#features', label: 'Features' },
+            { href: '/#videos', label: 'Videos' },
+            { href: '/blog', label: 'Blog' },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={close}
+              style={{
+                display: 'block',
+                color: 'rgba(255,255,255,0.75)',
+                textDecoration: 'none',
+                fontSize: 17,
+                letterSpacing: '0.08em',
+                padding: '15px 0',
+                borderBottom: '1px solid rgba(255,255,255,0.07)',
+                transition: 'color 0.2s',
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Download button */}
+        <a
+          href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724"
+          onClick={close}
+          style={{
+            display: 'block', width: '100%',
+            padding: '15px 20px', fontSize: 15, fontWeight: 700,
+            borderRadius: 50, marginBottom: 32,
+            background: 'linear-gradient(135deg,#C8762A,#E8943A)',
+            color: '#ffffff', textDecoration: 'none',
+            boxShadow: '0 6px 20px rgba(200,118,42,0.4)',
+          }}
+        >
+          🍎 Download Free
+        </a>
+
+        {/* Social icons */}
+        <div style={{ display: 'flex', gap: 28, justifyContent: 'center' }}>
+          {socialLinks.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              style={{ color: 'rgba(255,255,255,0.6)', display: 'flex' }}
+            >
+              {s.svg}
+            </a>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <>
@@ -48,62 +181,8 @@ export default function MobileNav() {
         <span /><span /><span />
       </button>
 
-      {open && (
-        <>
-          {/* Dark overlay */}
-          <div className="mobile-menu-overlay" onClick={() => setOpen(false)} />
-
-          {/* Drawer */}
-          <div className="mobile-menu">
-
-            {/* X close button — top right corner, always visible */}
-            <button className="mobile-menu-close" onClick={() => setOpen(false)} aria-label="Close menu">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>
-
-            {/* Logo */}
-            <Link href="/" className="logo mobile-menu-logo" onClick={() => setOpen(false)}>
-              <span className="f">Faith</span><span className="s">Spark</span>
-            </Link>
-
-            {/* Nav links */}
-            <nav className="mobile-menu-links">
-              <Link href="/#features" onClick={() => setOpen(false)}>Features</Link>
-              <Link href="/#videos" onClick={() => setOpen(false)}>Videos</Link>
-              <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
-            </nav>
-
-            {/* Download button */}
-            <a
-              href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724"
-              className="mobile-menu-dl"
-              onClick={() => setOpen(false)}
-            >
-              🍎 Download Free
-            </a>
-
-            {/* Social icons centered below download */}
-            <div className="mobile-menu-social">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="nav-social-icon"
-                >
-                  {s.svg}
-                </a>
-              ))}
-            </div>
-
-          </div>
-        </>
-      )}
+      {/* Portal renders outside nav so backdrop-filter doesn't trap it */}
+      {mounted && open && createPortal(menu, document.body)}
     </>
   );
 }
