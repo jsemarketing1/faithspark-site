@@ -72,27 +72,29 @@ export default function MobileSplash() {
         🍎 Download on the App Store
       </a>
 
-      {/* Google Play (coming soon) */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 10,
-        width: '100%',
-        maxWidth: 300,
-        padding: '16px 24px',
-        borderRadius: 50,
-        background: 'rgba(255,255,255,0.06)',
-        border: '1px solid rgba(255,255,255,0.1)',
-        color: 'rgba(255,255,255,0.35)',
-        fontSize: 15,
-        marginBottom: 36,
-      }}>
-        🤖 Google Play &nbsp;
-        <span style={{ fontSize: 10, background: 'rgba(200,118,42,0.25)', color: '#C8762A', border: '1px solid rgba(200,118,42,0.4)', padding: '2px 8px', borderRadius: 20, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          Coming Soon
-        </span>
-      </div>
+      {/* Google Play */}
+      <a
+        href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 10,
+          width: '100%',
+          maxWidth: 300,
+          padding: '16px 24px',
+          borderRadius: 50,
+          background: 'rgba(255,255,255,0.08)',
+          border: '1px solid rgba(255,255,255,0.18)',
+          color: '#ffffff',
+          fontSize: 16,
+          fontWeight: 700,
+          textDecoration: 'none',
+          marginBottom: 36,
+        }}
+      >
+        🤖 Download on Google Play
+      </a>
 
       {/* More info link */}
       <button

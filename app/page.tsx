@@ -79,9 +79,9 @@ export default function HomePage() {
           <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="btn-gold">
             🍎 Download on iPhone — Free
           </a>
-          <span className="btn-ghost">
-            Android &nbsp;<span className="cs-tag">Coming Soon</span>
-          </span>
+          <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" className="btn-ghost">
+            🤖 Download on Android
+          </a>
         </div>
         <p className="free-note">Most features are <span>completely free</span> — no credit card needed</p>
       </section>
@@ -250,13 +250,13 @@ export default function HomePage() {
               <span className="sb-name">App Store</span>
             </span>
           </a>
-          <span className="store-btn coming">
+          <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" className="store-btn">
             <span className="sb-icon">🤖</span>
             <span className="sb-text">
-              <span className="sb-sub">Coming Soon to</span>
+              <span className="sb-sub">Get it on</span>
               <span className="sb-name">Google Play</span>
             </span>
-          </span>
+          </a>
           <span className="store-btn coming">
             <span className="sb-icon">💻</span>
             <span className="sb-text">
