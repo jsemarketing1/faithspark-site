@@ -155,12 +155,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '15px', marginBottom: '24px', lineHeight: '1.7' }}>
             FaithSpark gives you daily devotionals, guided prayer, a full Bible reader, and Spark — your personal AI faith companion. All free.
           </p>
-          <a
-            href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724"
-            className="btn-gold"
-          >
-            🍎 Download FaithSpark — Free
-          </a>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a
+              href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724"
+              className="btn-gold"
+            >
+              🍎 Download FaithSpark — Free
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share"
+              className="btn-gold"
+            >
+              🤖 Get it on Google Play
+            </a>
+          </div>
         </div>
 
       </div>
