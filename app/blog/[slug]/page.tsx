@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {post.image ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={post.image} alt={post.title} className="blog-hero-img" />
+        <img src={post.image} alt={post.imageAlt} className="blog-hero-img" />
       ) : (
         <div className="blog-hero-placeholder">✝️</div>
       )}

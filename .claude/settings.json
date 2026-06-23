@@ -25,10 +25,24 @@
       "Bash(powershell.exe -Command ' *)",
       "Bash(node --use-system-ca -e \"require\\('unist-util-visit'\\); console.log\\('ok'\\)\")",
       "Bash(grep -l \"href=\\\\\"/\\\\\"\" content/blog/*.mdx)",
-      "Bash(grep -rL \"href=\\\\\"/\\\\\"\" content/blog/*.mdx)"
+      "Bash(grep -rL \"href=\\\\\"/\\\\\"\" content/blog/*.mdx)",
+      "WebFetch(domain:mindgardenpress.com)",
+      "Bash(curl -s -H \"Authorization: p3BcTeMnm6BWdkxVkLER7cTceLpcWXJds1ziLgXATq4ROQSd4oEs8zyy\" \"https://api.pexels.com/v1/search?query=open+hands+prayer+surrender&per_page=5&orientation=landscape\")",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(p['id'], p['src']['large'], p['alt']\\) for p in data['photos']]\")",
+      "Bash(curl -s -H \"Authorization: p3BcTeMnm6BWdkxVkLER7cTceLpcWXJds1ziLgXATq4ROQSd4oEs8zyy\" \"https://api.pexels.com/v1/search?query=open+hands+prayer&per_page=5&orientation=landscape\")",
+      "PowerShell(git add app/blog/`[slug`]/page.tsx content/blog/ public/blog/ scripts/convert-webp.mjs)",
+      "PowerShell(git push origin main)",
+      "Bash(rm \"c:\\\\Users\\\\joeye\\\\Desktop\\\\faithspark-site\\\\public\\\\blog\\\\test-hero.jpg\")",
+      "Bash(curl -s \"https://faithspark.app/\")",
+      "Bash(curl -s \"https://faithspark.app/blog/\")",
+      "Bash(curl -s \"https://faithspark.app/blog/isaiah-41-10-devotional/\" -o /dev/null -w \"Article page status: %{http_code}\\\\n\")",
+      "Bash(curl -sv \"https://faithspark.app/\")",
+      "Bash(sed -i 's/date: \"2026-06-09\"/date: \"2026-06-03\"/' content/blog/cast-all-your-anxiety-on-him.mdx content/blog/faithful-women-devotional.mdx)",
+      "Bash(sed -i 's/date: \"2026-06-09\"/date: \"2026-06-04\"/' content/blog/god-uses-ordinary-women.mdx content/blog/he-wont-let-you-drown.mdx)"
     ],
     "additionalDirectories": [
-      "c:\\Users\\joeye\\.claude\\projects\\c--Users-joeye-Desktop-faithspark-site\\memory"
+      "c:\\Users\\joeye\\.claude\\projects\\c--Users-joeye-Desktop-faithspark-site\\memory",
+      "c:\\Users\\joeye\\Desktop\\faithspark-site\\public\\blog"
     ]
   }
 }

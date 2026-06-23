@@ -19,6 +19,7 @@ export interface PostMeta {
   slug: string;
   tags: string[];
   image: string;
+  imageAlt: string;
   readingTime: string;
   faqs: FAQ[];
 }
@@ -44,6 +45,7 @@ export function getAllPosts(): PostMeta[] {
       slug: data.slug ?? filename.replace('.mdx', ''),
       tags: data.tags ?? [],
       image: data.image ?? '',
+      imageAlt: data.imageAlt ?? data.title ?? '',
       readingTime: stats.text,
       faqs: data.faqs ?? [],
     } as PostMeta;
@@ -69,6 +71,7 @@ export async function getPost(slug: string): Promise<Post | null> {
     slug: data.slug ?? slug,
     tags: data.tags ?? [],
     image: data.image ?? '',
+    imageAlt: data.imageAlt ?? data.title ?? '',
     readingTime: stats.text,
     faqs: data.faqs ?? [],
     content,
