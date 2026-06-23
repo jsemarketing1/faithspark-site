@@ -120,6 +120,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
 
+        {/* Author bio */}
+        <div style={{ marginTop: '48px', padding: '28px 32px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/blog/jands.webp"
+            alt="Joey — founder of FaithSpark"
+            style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', flexShrink: 0, border: '2px solid rgba(200,118,42,0.6)' }}
+          />
+          <div>
+            <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '17px', color: '#ffffff', marginBottom: '4px', fontWeight: 700 }}>Joey</p>
+            <p style={{ fontSize: '13px', color: '#C8762A', marginBottom: '12px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Truck Driver · Dad of 6 · Founder of FaithSpark</p>
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.75', margin: 0 }}>
+              Joey grew up with an alcoholic father and found his way to faith through his grandmother&apos;s church as a teenager. After years on the road, a hard season in his 20s, and a life rebuilt around God, family, and Scripture, he created FaithSpark — a daily devotional app built for real people in real life. He lives in Texas with his wife Stephanie and their six kids.
+            </p>
+          </div>
+        </div>
+
         {/* Internal links / related posts */}
         {related.length > 0 && (
           <div className="blog-related">
