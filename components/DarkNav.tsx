@@ -50,6 +50,7 @@ export default function DarkNav() {
         <Link href="/#features">Features</Link>
         <Link href="/#videos">Videos</Link>
         <Link href="/blog">Blog</Link>
+        <a href="https://app.faithspark.app" target="_blank" rel="noopener noreferrer">Web App</a>
         <Link href="/#download" className="nav-btn">Download Free</Link>
       </div>
       <MobileNav />
