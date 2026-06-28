@@ -257,13 +257,13 @@ export default function HomePage() {
               <span className="sb-name">Google Play</span>
             </span>
           </a>
-          <a href="https://app.faithspark.app" className="store-btn web" target="_blank" rel="noopener noreferrer">
+          <span className="store-btn coming">
             <span className="sb-icon">💻</span>
             <span className="sb-text">
-              <span className="sb-sub">Open in Browser</span>
-              <span className="sb-name">Web App</span>
+              <span className="sb-sub">Coming Soon to</span>
+              <span className="sb-name">Desktop</span>
             </span>
-          </a>
+          </span>
         </div>
       </section>
 

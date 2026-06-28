@@ -133,24 +133,6 @@ export default function MobileNav() {
               {item.label}
             </Link>
           ))}
-          <a
-            href="https://app.faithspark.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={close}
-            style={{
-              display: 'block',
-              color: 'rgba(255,255,255,0.75)',
-              textDecoration: 'none',
-              fontSize: 17,
-              letterSpacing: '0.08em',
-              padding: '15px 0',
-              borderBottom: '1px solid rgba(255,255,255,0.07)',
-              transition: 'color 0.2s',
-            }}
-          >
-            Web App
-          </a>
         </div>
 
         {/* Download button */}
