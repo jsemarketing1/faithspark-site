@@ -429,12 +429,15 @@ body { overflow-x: hidden; }
 .store-btn.apple { background: #ffffff; color: #0d0800; }
 .store-btn.apple:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(255,255,255,0.2); }
 .store-btn.coming { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); cursor: default; }
+.store-btn.web { background: rgba(200,118,42,0.12); border: 1px solid rgba(200,118,42,0.5); color: #ffffff; }
+.store-btn.web:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(200,118,42,0.25); }
 .sb-icon { font-size: 26px; }
 .sb-text { text-align: left; }
 .sb-sub { font-size: 11px; opacity: 0.6; display: block; }
 .sb-name { font-size: 17px; font-weight: 700; display: block; }
 .store-btn.coming .sb-text * { color: rgba(255,255,255,0.45) !important; }
 .store-btn.apple .sb-text * { color: #0d0800 !important; }
+.store-btn.web .sb-text * { color: #ffffff !important; }
 
 /* BLOG PREVIEW on homepage */
 .blog-preview-wrap { padding: 90px 24px; background: #0d0800; }
