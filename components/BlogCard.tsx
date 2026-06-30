@@ -6,7 +6,7 @@ export default function BlogCard({ post }: { post: PostMeta }) {
     <Link href={`/blog/${post.slug}`} className="blog-card-dark">
       {post.image ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={post.image} alt={post.title} className="blog-card-img" />
+        <img src={post.image} alt={post.imageAlt || post.title} className="blog-card-img" />
       ) : (
         <div className="blog-card-img-placeholder">✝️</div>
       )}

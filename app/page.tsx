@@ -29,7 +29,7 @@ export default function HomePage() {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
       name: 'FaithSpark',
-      operatingSystem: 'iOS',
+      operatingSystem: 'iOS, Android',
       applicationCategory: 'LifestyleApplication',
       description: 'A free Christian faith app with AI devotionals, Bible reader, community prayer board, guided prayer sessions, sleep stories, Scripture Art, and personal AI faith companion Spark.',
       url: 'https://faithspark.app',
@@ -167,6 +167,7 @@ export default function HomePage() {
                 title="FaithSpark — See It In Action"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
               />
             </div>
           </div>

@@ -20,7 +20,7 @@ export default function DownloadPage() {
         >
           📱 Download on the App Store
         </a>
-        <a href="#" className="dl-btn dl-btn-google">
+        <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" className="dl-btn dl-btn-google">
           🤖 Get it on Google Play
         </a>
       </div>

@@ -7,8 +7,8 @@ import { getAllPosts } from '@/lib/posts';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Blog — Faith, Devotionals & Scripture',
-  description: 'Personal devotionals, Psalm studies, prayer guides, and faith reflections from the creator of FaithSpark.',
+  title: 'Christian Devotionals Blog — Faith, Scripture & Prayer | FaithSpark',
+  description: 'Faith-first devotionals on Scripture, prayer, and real life — written by Joey, creator of FaithSpark. Verse studies, Bible questions answered, and honest reflections from the road.',
   alternates: { canonical: 'https://faithspark.app/blog' },
 };
 
