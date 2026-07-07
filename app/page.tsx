@@ -93,48 +93,62 @@ export default function HomePage() {
       </section>
 
       {/* PILLAR HUB */}
-      <section className="section" id="explore" style={{ background: '#0a0600' }}>
-        <p className="sec-eye">Explore by Topic</p>
-        <h2 className="sec-title">Everything FaithSpark<br /><span style={{ color: '#C8762A' }}>Can Do For You</span></h2>
-        <p className="sec-sub">Tap any topic to learn more — then download the app and get it all free.</p>
+      <div id="explore" style={{ background: '#060400', padding: '90px 0' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
+          <p className="sec-eye">Explore FaithSpark</p>
+          <h2 className="sec-title">Your Complete<br /><span style={{ color: '#C8762A' }}>Faith Hub</span></h2>
+          <p className="sec-sub" style={{ marginBottom: 56 }}>Tap any topic to go deeper — then download the app and get it all free.</p>
 
-        <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.22em', color: 'rgba(200,118,42,0.6)', textTransform: 'uppercase', textAlign: 'center', marginBottom: 20, marginTop: 48 }}>Daily Faith</p>
-        <div className="free-grid" style={{ marginBottom: 0 }}>
-          {[
-            { href: '/daily-bible-verse-app', icon: '📖', title: 'Daily Bible Verse App', desc: 'A verse every morning with a plain-English explanation — plus a live scanner that reads any printed Bible.' },
-            { href: '/daily-prayer-app', icon: '🙏', title: 'Daily Prayer App', desc: 'Guided audio prayer sessions, morning routines, a prayer list, and a companion who prays with you out loud.' },
-            { href: '/daily-devotional-app', icon: '✨', title: 'Daily Devotional App', desc: 'AI-personalized devotionals that know your name, your season, and what you\'re going through right now.' },
-            { href: '/christian-sleep-meditation', icon: '💤', title: 'Christian Sleep Meditation', desc: 'Faith-based sleep stories and bedtime prayer to help you rest in God\'s peace every night.' },
-          ].map((p) => (
-            <Link href={p.href} key={p.href} className="free-card" style={{ textDecoration: 'none', cursor: 'pointer' }}>
-              <span className="free-card-icon">{p.icon}</span>
-              <h3 className="free-card-title">{p.title}</h3>
-              <p className="free-card-desc">{p.desc}</p>
-              <span className="free-badge" style={{ background: 'rgba(200,118,42,0.15)', color: '#C8762A', border: '1px solid rgba(200,118,42,0.3)' }}>Learn More →</span>
-            </Link>
-          ))}
-        </div>
+          {/* DAILY FAITH ROW */}
+          <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.28em', color: '#C8762A', textTransform: 'uppercase' as const, marginBottom: 20 }}>Daily Faith</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, marginBottom: 56 }}>
+            {[
+              { href: '/daily-bible-verse-app', icon: '📖', img: '/blog/bible-verse-daily-app.jpg', title: 'Daily Bible Verse App', desc: 'A verse every morning with a plain-English explanation — plus a scanner that reads any printed Bible.' },
+              { href: '/daily-prayer-app', icon: '🙏', img: '/blog/prayer-app.jpg', title: 'Daily Prayer App', desc: 'Guided audio prayer, morning routines, a prayer list, and a companion who prays with you out loud.' },
+              { href: '/daily-devotional-app', icon: '✨', img: '/blog/devotional-app.jpg', title: 'Daily Devotional App', desc: 'AI-personalized devotionals that know your name, your season, and what you\'re going through right now.' },
+              { href: '/christian-sleep-meditation', icon: '💤', img: '/blog/sleep-meditation.jpg', title: 'Christian Sleep Meditation', desc: 'Faith-based sleep stories and bedtime prayer to help you rest in God\'s peace every night.' },
+            ].map((p) => (
+              <Link href={p.href} key={p.href} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', minHeight: 300, display: 'flex', flexDirection: 'column' as const, justifyContent: 'flex-end', textDecoration: 'none', cursor: 'pointer' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.img} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' as const, opacity: 0.45 }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,4,0,0.95) 0%, rgba(6,4,0,0.3) 60%, transparent 100%)' }} />
+                <div style={{ position: 'relative', zIndex: 1, padding: '0 24px 28px' }}>
+                  <span style={{ fontSize: 28, marginBottom: 10, display: 'block' }}>{p.icon}</span>
+                  <h3 style={{ fontFamily: 'var(--font-cinzel)', fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 8, lineHeight: 1.3 }}>{p.title}</h3>
+                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 16 }}>{p.desc}</p>
+                  <span style={{ display: 'inline-block', background: '#C8762A', color: '#fff', padding: '7px 16px', borderRadius: 50, fontSize: 12, fontWeight: 700, letterSpacing: '0.05em' }}>Learn More →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
 
-        <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.22em', color: 'rgba(200,118,42,0.6)', textTransform: 'uppercase', textAlign: 'center', marginBottom: 20, marginTop: 48 }}>Recovery &amp; Healing</p>
-        <div className="free-grid" style={{ marginBottom: 0 }}>
-          {[
-            { href: '/christian-recovery', icon: '🕊️', title: 'Christian Recovery', desc: 'Five Christ-centered recovery courses covering addiction, anger, self-harm, pornography, and gambling — free in the app.' },
-            { href: '/aa-daily-reflections', icon: '📓', title: 'AA Daily Reflections', desc: 'A faith-based take on AA daily reflections — written by Joey, who\'s lived it. Book + app working together.' },
-            { href: '/christian-rehab', icon: '🌅', title: 'Christian Rehab Support', desc: 'What happens every day after rehab matters as much as the program. FaithSpark is your daily faith anchor.' },
-          ].map((p) => (
-            <Link href={p.href} key={p.href} className="free-card" style={{ textDecoration: 'none', cursor: 'pointer' }}>
-              <span className="free-card-icon">{p.icon}</span>
-              <h3 className="free-card-title">{p.title}</h3>
-              <p className="free-card-desc">{p.desc}</p>
-              <span className="free-badge" style={{ background: 'rgba(200,118,42,0.15)', color: '#C8762A', border: '1px solid rgba(200,118,42,0.3)' }}>Learn More →</span>
-            </Link>
-          ))}
-        </div>
+          {/* RECOVERY ROW */}
+          <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.28em', color: '#C8762A', textTransform: 'uppercase' as const, marginBottom: 20 }}>Recovery &amp; Healing</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20, marginBottom: 56 }}>
+            {[
+              { href: '/christian-recovery', icon: '🕊️', img: '/blog/christian-recovery.jpg', title: 'Christian Recovery', desc: 'Five Christ-centered recovery courses covering addiction, anger, self-harm, pornography, and gambling — free in the app.' },
+              { href: '/aa-daily-reflections', icon: '📓', img: '/blog/aa-daily-reflections.jpg', title: 'AA Daily Reflections', desc: 'A faith-based take on AA daily reflections — written by Joey, who\'s lived it. Book + app working together.' },
+              { href: '/christian-rehab', icon: '🌅', img: '/blog/christian-rehab.jpg', title: 'Christian Rehab Support', desc: 'What happens every day after rehab is as important as the program itself. FaithSpark is your daily faith anchor.' },
+            ].map((p) => (
+              <Link href={p.href} key={p.href} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', minHeight: 300, display: 'flex', flexDirection: 'column' as const, justifyContent: 'flex-end', textDecoration: 'none', cursor: 'pointer' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.img} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' as const, opacity: 0.45 }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,4,0,0.95) 0%, rgba(6,4,0,0.3) 60%, transparent 100%)' }} />
+                <div style={{ position: 'relative', zIndex: 1, padding: '0 24px 28px' }}>
+                  <span style={{ fontSize: 28, marginBottom: 10, display: 'block' }}>{p.icon}</span>
+                  <h3 style={{ fontFamily: 'var(--font-cinzel)', fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 8, lineHeight: 1.3 }}>{p.title}</h3>
+                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 16 }}>{p.desc}</p>
+                  <span style={{ display: 'inline-block', background: '#C8762A', color: '#fff', padding: '7px 16px', borderRadius: 50, fontSize: 12, fontWeight: 700, letterSpacing: '0.05em' }}>Learn More →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
 
-        <div style={{ textAlign: 'center', marginTop: 52 }}>
-          <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="btn-gold">🍎 Download Free on iPhone</a>
+          <div style={{ textAlign: 'center' }}>
+            <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="btn-gold">🍎 Download Free — All of This Is Inside</a>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* FREE FEATURES */}
       <section className="section" id="features" style={{ background: '#0d0800' }}>
