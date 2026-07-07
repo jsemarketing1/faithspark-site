@@ -154,7 +154,7 @@ export default function AaDailyReflectionsPage() {
 
         <h2 style={S.h2}>Questions About AA Daily Reflections and Faith</h2>
         <div>
-          {schema['@graph'][2].mainEntity.map((item: {name: string; acceptedAnswer: {text: string}}) => (
+          {(schema['@graph'][2] as { mainEntity: Array<{name: string; acceptedAnswer: {text: string}}> }).mainEntity.map((item) => (
             <div key={item.name} style={S.faqItem}>
               <p style={S.faqQ}>{item.name}</p>
               <p style={S.faqA}>{item.acceptedAnswer.text}</p>
