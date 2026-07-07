@@ -7,9 +7,15 @@ import DarkFooter from '@/components/DarkFooter';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Christian Recovery — Faith-Based Recovery Programs & Daily Support',
-  description: 'FaithSpark offers Christ-centered recovery courses for addiction, anger, and more — plus daily devotionals and prayer to support your faith-based recovery journey. Free download.',
-  alternates: { canonical: 'https://faithspark.app/christian-recovery' },
+  title: 'Christian Recovery | Faith-Based Recovery Programs and Daily Support',
+  description: 'FaithSpark offers Christ-centered recovery courses for addiction, anger, and more. Daily devotionals and prayer to support your faith-based recovery journey. Free download.',
+  alternates: { canonical: 'https://faithspark.app/christian-recovery/' },
+  openGraph: {
+    title: 'Christian Recovery | Faith-Based Recovery Programs and Daily Support',
+    description: 'FaithSpark offers Christ-centered recovery courses for addiction, anger, and more. Daily devotionals and prayer to support your faith-based recovery journey. Free download.',
+    url: 'https://faithspark.app/christian-recovery/',
+    images: [{ url: '/Faithspark1200x630.jpg', width: 1200, height: 630, alt: 'FaithSpark Christian Recovery' }],
+  },
 };
 
 const schema = {
@@ -21,7 +27,6 @@ const schema = {
       operatingSystem: 'iOS, Android',
       applicationCategory: 'LifestyleApplication',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '120' },
       url: 'https://faithspark.app',
       downloadUrl: 'https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724',
     },

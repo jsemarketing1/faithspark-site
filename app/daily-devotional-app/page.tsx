@@ -7,9 +7,15 @@ import DarkFooter from '@/components/DarkFooter';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Daily Devotional App — AI-Personalized Faith, Free on iOS & Android',
-  description: 'FaithSpark is the best daily devotional app for men and women — AI-personalized devotionals written for your life, not a one-size-fits-all template. Free download.',
-  alternates: { canonical: 'https://faithspark.app/daily-devotional-app' },
+  title: 'Daily Devotional App | AI Personalized Faith | Free on iOS and Android',
+  description: 'FaithSpark is the best daily devotional app for men and women. AI-personalized devotionals written for your life, not a one-size-fits-all template. Free download.',
+  alternates: { canonical: 'https://faithspark.app/daily-devotional-app/' },
+  openGraph: {
+    title: 'Daily Devotional App | AI Personalized Faith | Free on iOS and Android',
+    description: 'FaithSpark is the best daily devotional app for men and women. AI-personalized devotionals written for your life, not a one-size-fits-all template. Free download.',
+    url: 'https://faithspark.app/daily-devotional-app/',
+    images: [{ url: '/Faithspark1200x630.jpg', width: 1200, height: 630, alt: 'FaithSpark Daily Devotional App' }],
+  },
 };
 
 const schema = {
@@ -21,7 +27,6 @@ const schema = {
       operatingSystem: 'iOS, Android',
       applicationCategory: 'LifestyleApplication',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '120' },
       url: 'https://faithspark.app',
       downloadUrl: 'https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724',
     },

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Delete Your Account',
   description: 'How to delete your FaithSpark account and all associated data.',
-  alternates: { canonical: 'https://faithspark.app/delete-account' },
+  alternates: { canonical: 'https://faithspark.app/delete-account/' },
 };
 
 export default function DeleteAccountPage() {

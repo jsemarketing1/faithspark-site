@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Download FaithSpark — Free Faith App for iPhone',
   description: 'Download FaithSpark free on the App Store. AI devotionals, community prayer, Bible reader, guided prayer sessions, Scripture Art, and your personal AI faith companion.',
-  alternates: { canonical: 'https://faithspark.app/download' },
+  alternates: { canonical: 'https://faithspark.app/download/' },
 };
 
 export default function DownloadPage() {

@@ -5,7 +5,7 @@ import LightFooter from '@/components/LightFooter';
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'FaithSpark terms of service — the rules and guidelines for using the app.',
-  alternates: { canonical: 'https://faithspark.app/terms' },
+  alternates: { canonical: 'https://faithspark.app/terms/' },
 };
 
 export default function TermsPage() {

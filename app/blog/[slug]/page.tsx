@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.title,
     description: post.description,
-    alternates: { canonical: `https://faithspark.app/blog/${post.slug}` },
+    alternates: { canonical: `https://faithspark.app/blog/${post.slug}/` },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://faithspark.app/blog/${post.slug}`,
+      url: `https://faithspark.app/blog/${post.slug}/`,
       type: 'article',
       publishedTime: post.date,
       images: post.image ? [{ url: post.image }] : [],

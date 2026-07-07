@@ -7,9 +7,15 @@ import DarkFooter from '@/components/DarkFooter';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Daily Bible Verse App — Scripture That Sticks With You',
+  title: 'Daily Bible Verse App | Scripture That Sticks With You | FaithSpark',
   description: 'FaithSpark is the best daily Bible verse app with a live verse scanner, memorization tools, and plain-English explanations. Free on iOS and Android.',
-  alternates: { canonical: 'https://faithspark.app/daily-bible-verse-app' },
+  alternates: { canonical: 'https://faithspark.app/daily-bible-verse-app/' },
+  openGraph: {
+    title: 'Daily Bible Verse App | Scripture That Sticks With You | FaithSpark',
+    description: 'FaithSpark is the best daily Bible verse app with a live verse scanner, memorization tools, and plain-English explanations. Free on iOS and Android.',
+    url: 'https://faithspark.app/daily-bible-verse-app/',
+    images: [{ url: '/Faithspark1200x630.jpg', width: 1200, height: 630, alt: 'FaithSpark Daily Bible Verse App' }],
+  },
 };
 
 const schema = {
@@ -21,7 +27,6 @@ const schema = {
       operatingSystem: 'iOS, Android',
       applicationCategory: 'LifestyleApplication',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '120' },
       url: 'https://faithspark.app',
       downloadUrl: 'https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724',
     },

@@ -33,10 +33,10 @@ export default function MobileSplash() {
       </div>
 
       {/* Logo */}
-      <h1 style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1 }}>
+      <p style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1 }}>
         <span style={{ color: '#ffffff', fontWeight: 400 }}>Faith</span>
         <span style={{ color: '#C8762A' }}>Spark</span>
-      </h1>
+      </p>
 
       {/* Tagline */}
       <p style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: 13, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.18em', marginBottom: 10 }}>

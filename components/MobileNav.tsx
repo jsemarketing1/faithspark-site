@@ -113,6 +113,7 @@ export default function MobileNav() {
           {[
             { href: '/#features', label: 'Features' },
             { href: '/#videos', label: 'Videos' },
+            { href: '/devotionals', label: 'Devotionals' },
             { href: '/blog', label: 'Blog' },
           ].map((item) => (
             <Link

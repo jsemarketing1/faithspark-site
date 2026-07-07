@@ -7,9 +7,15 @@ import DarkFooter from '@/components/DarkFooter';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Daily Prayer App — Guided Christian Prayer, Free on iOS & Android',
-  description: 'FaithSpark is the best daily prayer app for Christians — guided audio prayer, morning prayer routines, prayer list, and a companion that prays with you out loud. Free.',
-  alternates: { canonical: 'https://faithspark.app/daily-prayer-app' },
+  title: 'Daily Prayer App | Guided Christian Prayer | Free iOS and Android',
+  description: 'FaithSpark is the best daily prayer app for Christians. Guided audio prayer, morning prayer routines, prayer list, and a companion that prays with you out loud. Free.',
+  alternates: { canonical: 'https://faithspark.app/daily-prayer-app/' },
+  openGraph: {
+    title: 'Daily Prayer App | Guided Christian Prayer | Free iOS and Android',
+    description: 'FaithSpark is the best daily prayer app for Christians. Guided audio prayer, morning prayer routines, prayer list, and a companion that prays with you out loud. Free.',
+    url: 'https://faithspark.app/daily-prayer-app/',
+    images: [{ url: '/Faithspark1200x630.jpg', width: 1200, height: 630, alt: 'FaithSpark Daily Prayer App' }],
+  },
 };
 
 const schema = {
@@ -21,7 +27,6 @@ const schema = {
       operatingSystem: 'iOS, Android',
       applicationCategory: 'LifestyleApplication',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '120' },
       url: 'https://faithspark.app',
       downloadUrl: 'https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724',
     },

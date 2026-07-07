@@ -5,7 +5,7 @@ import LightFooter from '@/components/LightFooter';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'FaithSpark privacy policy — how we collect, use, and protect your personal information.',
-  alternates: { canonical: 'https://faithspark.app/privacy' },
+  alternates: { canonical: 'https://faithspark.app/privacy/' },
 };
 
 export default function PrivacyPage() {

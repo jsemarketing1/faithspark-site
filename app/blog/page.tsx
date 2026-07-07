@@ -9,7 +9,7 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: 'Christian Devotionals Blog — Faith, Scripture & Prayer | FaithSpark',
   description: 'Faith-first devotionals on Scripture, prayer, and real life — written by Joey, creator of FaithSpark. Verse studies, Bible questions answered, and honest reflections from the road.',
-  alternates: { canonical: 'https://faithspark.app/blog' },
+  alternates: { canonical: 'https://faithspark.app/blog/' },
 };
 
 export default function BlogIndexPage() {
