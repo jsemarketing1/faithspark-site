@@ -132,7 +132,7 @@ export default function ChristianSleepMeditationPage() {
 
         <h2 style={S.h2}>Questions About Christian Sleep Meditation</h2>
         <div>
-          {schema['@graph'][1].mainEntity.map((item: {name: string; acceptedAnswer: {text: string}}) => (
+          {(schema['@graph'][1] as { mainEntity: Array<{name: string; acceptedAnswer: {text: string}}> }).mainEntity.map((item) => (
             <div key={item.name} style={S.faqItem}>
               <p style={S.faqQ}>{item.name}</p>
               <p style={S.faqA}>{item.acceptedAnswer.text}</p>
