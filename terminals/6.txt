@@ -1,0 +1,27 @@
+---
+pid: 23912
+cwd: "C:\Users\joeye\Desktop\faithspark-site"
+command: "Set-Location \"C:\\Users\\joeye\\Desktop\\faithspark-web\"; npm run dev -- --host"
+started_at: 2026-07-01T04:27:43.436Z
+running_for_ms: 109145546
+---
+
+> faithspark-web@0.0.0 dev
+> vite --host
+
+
+  VITE v8.0.12  ready in 298 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.12.113:5173/
+  ➜  Network: http://192.168.80.1:5173/
+12:39:12 AM [vite] vite.config.js changed, restarting server...
+12:39:12 AM [vite] server restarted.
+12:39:20 AM [vite] vite.config.js changed, restarting server...
+12:39:20 AM [vite] server restarted.
+
+---
+exit_code: -1
+elapsed_ms: 109145546
+ended_at: 2026-07-02T10:46:31.053Z
+---

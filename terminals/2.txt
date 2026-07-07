@@ -1,0 +1,36 @@
+---
+pid: 31844
+cwd: "C:\Users\joeye\Desktop\faithspark-site"
+command: "cd \"C:\\Users\\joeye\\Desktop\\faithspark-web\"; node -e \"
+async function test() {
+  const url = 'https://www.crosswalk.com/rss.xml';
+  const encoded = encodeURIComponent(url);
+  const proxies = [
+    'https://api.allorigins.win/raw?url=' + encoded,
+    'https://corsproxy.io/?' + encodeURIComponent(url),
+    'https://api.codetabs.com/v1/proxy?quest=' + encoded,
+  ];
+  for (const p of proxies) {
+    try {
+      const res = await fetch(p);
+      const text = await res.text();
+      const items = (text.match(/<item/gi)||[]).length;
+      const entries = (text.match(/<entry/gi)||[]).length;
+      console.log(p.split('?')[0].slice(-30), res.status, text.length, 'items', items, 'entries', entries, text.slice(0,120).replace(/\\n/g,' '));
+    } catch(e) { console.log('ERR', e.message); }
+  }
+}
+test();
+\""
+started_at: 2026-06-30T02:53:11.947Z
+running_for_ms: 86400015 
+---
+https://api.allorigins.win/raw 522 7282 items 0 entries 0 <!DOCTYPE html> <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]--> <!--[if IE 7]>    <html class
+https://corsproxy.io/ 403 103 items 0 entries 0 {"error":"Server-side requests are not allowed on your plan. Upgrade at https://corsproxy.io/pricing/"}
+ps://api.codetabs.com/v1/proxy 400 136 items 0 entries 0 {  "Error": "Bad request, valid format is 'api.codetabs.com/v1/{service}?{param}=value' .Please read our docs at https:/
+
+---
+exit_code: -1
+elapsed_ms: 86400015
+ended_at: 2026-07-01T02:53:09.279Z
+---

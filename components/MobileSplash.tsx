@@ -15,7 +15,7 @@ export default function MobileSplash() {
       position: 'fixed',
       inset: 0,
       zIndex: 99999,
-      background: '#0d0800',
+      background: '#1a1208',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',

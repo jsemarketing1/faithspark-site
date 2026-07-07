@@ -82,13 +82,13 @@ export default function HomePage() {
       </section>
 
       {/* ── VERSE ── */}
-      <section className="verse" style={{ background: '#0d0800' }}>
+      <section className="verse" style={{ background: '#1a1208' }}>
         <p>&ldquo;Your word is a lamp to my feet and a light to my path.&rdquo;</p>
         <span>— Psalm 119:105</span>
       </section>
 
       {/* ── PILLAR HUB ── */}
-      <div id="explore" style={{ background: '#060400', padding: '80px 0' }}>
+      <div id="explore" style={{ background: '#160d04', padding: '80px 0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <p className="sec-eye">Explore FaithSpark</p>
           <h2 className="sec-title">Your Complete<br /><span style={{ color: '#C8762A' }}>Faith Hub</span></h2>
@@ -144,7 +144,7 @@ export default function HomePage() {
       </div>
 
       {/* ── APP FEATURES STRIP (6 items) ── */}
-      <section className="section" id="features" style={{ background: '#0d0800' }}>
+      <section className="section" id="features" style={{ background: '#1a1208' }}>
         <p className="sec-eye">What&apos;s Inside</p>
         <h2 className="sec-title">Everything You Need.<br /><span style={{ color: '#C8762A' }}>Completely Free.</span></h2>
         <p className="sec-sub">No paywalls on the good stuff.</p>

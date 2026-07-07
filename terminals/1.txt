@@ -1,0 +1,44 @@
+---
+pid: 36292
+cwd: "C:\Users\joeye\Desktop\faithspark-site"
+command: "cd \"C:\\Users\\joeye\\Desktop\\faithspark-web\"; node -e \"
+const feeds = [
+  'https://www.crosswalk.com/rss.xml',
+  'https://www.christianpost.com/rss',
+  'https://worthynews.com/feed',
+  'https://www.christianheadlines.com/rss',
+];
+async function test(url) {
+  const encoded = encodeURIComponent(url);
+  for (const proxy of [
+    ['codetabs', 'https://api.codetabs.com/v1/proxy?quest=' + encoded],
+    ['allorigins', 'https://api.allorigins.win/get?url=' + encoded],
+  ]) {
+    try {
+      const res = await fetch(proxy[1]);
+      const text = proxy[0]==='allorigins' ? (await res.json()).contents : await res.text();
+      const items = (text.match(/<item/gi)||[]).length;
+      console.log(proxy[0], url.split('/')[2], res.status, 'len', text?.length||0, 'items', items);
+    } catch(e) { console.log(proxy[0], url.split('/')[2], 'ERR', e.message); }
+  }
+}
+Promise.all(feeds.map(test));
+\""
+started_at: 2026-06-30T02:52:50.838Z
+running_for_ms: 86400014 
+---
+codetabs www.crosswalk.com 400 len 136 items 0
+codetabs worthynews.com 400 len 136 items 0
+codetabs www.christianheadlines.com 400 len 136 items 0
+codetabs www.christianpost.com 400 len 136 items 0
+allorigins www.christianpost.com ERR Unexpected token '<', "<html>
+<h"... is not valid JSON
+allorigins www.crosswalk.com 200 len 8923 items 0
+allorigins www.christianheadlines.com ERR Unexpected token 'O', "Oops... Re"... is not valid JSON
+allorigins worthynews.com ERR Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+---
+exit_code: -1
+elapsed_ms: 86400014
+ended_at: 2026-07-01T02:52:48.180Z
+---

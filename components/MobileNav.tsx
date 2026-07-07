@@ -62,7 +62,7 @@ export default function MobileNav() {
         style={{
           position: 'fixed', top: 0, right: 0, bottom: 0,
           width: 'min(300px, 85vw)',
-          background: '#0d0800',
+          background: '#1a1208',
           borderLeft: '1px solid rgba(200,118,42,0.25)',
           zIndex: 99998,
           display: 'flex', flexDirection: 'column', alignItems: 'center',
