@@ -92,6 +92,50 @@ export default function HomePage() {
         <span>— Psalm 119:105</span>
       </section>
 
+      {/* PILLAR HUB */}
+      <section className="section" id="explore" style={{ background: '#0a0600' }}>
+        <p className="sec-eye">Explore by Topic</p>
+        <h2 className="sec-title">Everything FaithSpark<br /><span style={{ color: '#C8762A' }}>Can Do For You</span></h2>
+        <p className="sec-sub">Tap any topic to learn more — then download the app and get it all free.</p>
+
+        <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.22em', color: 'rgba(200,118,42,0.6)', textTransform: 'uppercase', textAlign: 'center', marginBottom: 20, marginTop: 48 }}>Daily Faith</p>
+        <div className="free-grid" style={{ marginBottom: 0 }}>
+          {[
+            { href: '/daily-bible-verse-app', icon: '📖', title: 'Daily Bible Verse App', desc: 'A verse every morning with a plain-English explanation — plus a live scanner that reads any printed Bible.' },
+            { href: '/daily-prayer-app', icon: '🙏', title: 'Daily Prayer App', desc: 'Guided audio prayer sessions, morning routines, a prayer list, and a companion who prays with you out loud.' },
+            { href: '/daily-devotional-app', icon: '✨', title: 'Daily Devotional App', desc: 'AI-personalized devotionals that know your name, your season, and what you\'re going through right now.' },
+            { href: '/christian-sleep-meditation', icon: '💤', title: 'Christian Sleep Meditation', desc: 'Faith-based sleep stories and bedtime prayer to help you rest in God\'s peace every night.' },
+          ].map((p) => (
+            <Link href={p.href} key={p.href} className="free-card" style={{ textDecoration: 'none', cursor: 'pointer' }}>
+              <span className="free-card-icon">{p.icon}</span>
+              <h3 className="free-card-title">{p.title}</h3>
+              <p className="free-card-desc">{p.desc}</p>
+              <span className="free-badge" style={{ background: 'rgba(200,118,42,0.15)', color: '#C8762A', border: '1px solid rgba(200,118,42,0.3)' }}>Learn More →</span>
+            </Link>
+          ))}
+        </div>
+
+        <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.22em', color: 'rgba(200,118,42,0.6)', textTransform: 'uppercase', textAlign: 'center', marginBottom: 20, marginTop: 48 }}>Recovery &amp; Healing</p>
+        <div className="free-grid" style={{ marginBottom: 0 }}>
+          {[
+            { href: '/christian-recovery', icon: '🕊️', title: 'Christian Recovery', desc: 'Five Christ-centered recovery courses covering addiction, anger, self-harm, pornography, and gambling — free in the app.' },
+            { href: '/aa-daily-reflections', icon: '📓', title: 'AA Daily Reflections', desc: 'A faith-based take on AA daily reflections — written by Joey, who\'s lived it. Book + app working together.' },
+            { href: '/christian-rehab', icon: '🌅', title: 'Christian Rehab Support', desc: 'What happens every day after rehab matters as much as the program. FaithSpark is your daily faith anchor.' },
+          ].map((p) => (
+            <Link href={p.href} key={p.href} className="free-card" style={{ textDecoration: 'none', cursor: 'pointer' }}>
+              <span className="free-card-icon">{p.icon}</span>
+              <h3 className="free-card-title">{p.title}</h3>
+              <p className="free-card-desc">{p.desc}</p>
+              <span className="free-badge" style={{ background: 'rgba(200,118,42,0.15)', color: '#C8762A', border: '1px solid rgba(200,118,42,0.3)' }}>Learn More →</span>
+            </Link>
+          ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: 52 }}>
+          <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="btn-gold">🍎 Download Free on iPhone</a>
+        </div>
+      </section>
+
       {/* FREE FEATURES */}
       <section className="section" id="features" style={{ background: '#0d0800' }}>
         <p className="sec-eye">What&apos;s Included Free</p>
