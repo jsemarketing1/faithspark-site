@@ -102,7 +102,7 @@ export default function DailyBibleVerseAppPage() {
         <div style={S.heroInner}>
           <p style={S.tag}>Bible Verse App</p>
           <h1 style={S.h1}>The Daily Bible Verse App<br />That Actually Explains the Verse</h1>
-          <p style={S.sub}>I built FaithSpark because I kept reading verses I didn&apos;t fully understand. Now every verse comes with a plain-English explanation — and you can scan your printed Bible to find any passage in seconds.</p>
+          <p style={S.sub}>I built FaithSpark because I kept reading verses I didn&apos;t fully understand. Now every verse comes with a plain-English explanation and you can scan your printed Bible to find any passage in seconds.</p>
           <div style={S.btnRow}>
             <a href="https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724" style={S.btnApple}>📱 Download on App Store</a>
             <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" style={S.btnPlay}>🤖 Get it on Google Play</a>

@@ -115,7 +115,7 @@ export default function ChristianRehabPage() {
         <div style={S.heroInner}>
           <p style={S.tag}>Christian Rehab & Recovery</p>
           <h1 style={S.h1}>Christian Rehab —<br />Faith Is What Makes It Last</h1>
-          <p style={S.sub}>Professional treatment matters. So does what happens every single day after you leave. FaithSpark is the daily faith companion that keeps your recovery rooted in Christ — for free, on your phone, wherever you are.</p>
+          <p style={S.sub}>Professional treatment matters. So does what happens every single day after you leave. FaithSpark is the daily faith companion that keeps your recovery rooted in Christ. Free, on your phone, wherever you are.</p>
           <div style={S.btnRow}>
             <a href="https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724" style={S.btnApple}>📱 Download FaithSpark Free</a>
             <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" style={S.btnPlay}>🤖 Get it on Google Play</a>

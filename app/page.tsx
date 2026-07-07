@@ -67,18 +67,18 @@ export default function HomePage() {
         <p className="hero-tag">Faith That Knows Your Name</p>
         <p className="hero-desc">
           The world&apos;s first faith app with a personal AI companion who truly knows you.
-          Personalized devotionals, Bible study, prayer community — and Spark,
+          Personalized devotionals, Bible study, prayer community and Spark,
           your AI faith companion who grows with you every single day.
         </p>
         <div className="btn-row">
           <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="btn-gold">
-            🍎 Download on iPhone — Free
+            🍎 Download Free on iPhone
           </a>
           <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" className="btn-ghost">
             🤖 Download on Android
           </a>
         </div>
-        <p className="free-note">Most features are <span>completely free</span> — no credit card needed</p>
+        <p className="free-note">Most features are <span>completely free</span>. No credit card needed.</p>
       </section>
 
       {/* ── VERSE ── */}
@@ -92,12 +92,12 @@ export default function HomePage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <p className="sec-eye">Explore FaithSpark</p>
           <h2 className="sec-title">Your Complete<br /><span style={{ color: '#C8762A' }}>Faith Hub</span></h2>
-          <p className="sec-sub" style={{ marginBottom: 52 }}>Tap any topic to go deeper — then download the app and get it all free.</p>
+          <p className="sec-sub" style={{ marginBottom: 52 }}>Tap any topic to go deeper. Download the app and get it all free.</p>
 
           <p className="hp-cat-label">Daily Faith</p>
           <div className="hp-card-grid" style={{ marginBottom: 48 }}>
             {[
-              { href: '/daily-bible-verse-app', icon: '📖', img: '/blog/bible-verse-daily-app.jpg', title: 'Daily Bible Verse App', desc: 'A verse every morning with a plain-English explanation — plus a scanner that reads any printed Bible.' },
+              { href: '/daily-bible-verse-app', icon: '📖', img: '/blog/bible-verse-daily-app.jpg', title: 'Daily Bible Verse App', desc: 'A verse every morning with a plain-English explanation, plus a scanner that reads any printed Bible.' },
               { href: '/daily-prayer-app', icon: '🙏', img: '/blog/prayer-app.jpg', title: 'Daily Prayer App', desc: 'Guided audio prayer, morning routines, a prayer list, and a companion who prays with you out loud.' },
               { href: '/daily-devotional-app', icon: '✨', img: '/blog/devotional-app.jpg', title: 'Daily Devotional App', desc: 'AI-personalized devotionals that know your name, your season, and what you\'re going through right now.' },
               { href: '/christian-sleep-meditation', icon: '💤', img: '/blog/sleep-meditation.jpg', title: 'Christian Sleep Meditation', desc: 'Faith-based sleep stories and bedtime prayer to help you rest in God\'s peace every night.' },
@@ -119,8 +119,8 @@ export default function HomePage() {
           <p className="hp-cat-label">Recovery &amp; Healing</p>
           <div className="hp-card-grid hp-card-grid-3" style={{ marginBottom: 48 }}>
             {[
-              { href: '/christian-recovery', icon: '🕊️', img: '/blog/christian-recovery.jpg', title: 'Christian Recovery', desc: 'Five Christ-centered recovery courses covering addiction, anger, self-harm, pornography, and gambling — free in the app.' },
-              { href: '/aa-daily-reflections', icon: '📓', img: '/blog/aa-daily-reflections.jpg', title: 'AA Daily Reflections', desc: 'A faith-based take on AA daily reflections — written by Joey, who\'s lived it. Book + app working together.' },
+              { href: '/christian-recovery', icon: '🕊️', img: '/blog/christian-recovery.jpg', title: 'Christian Recovery', desc: 'Five Christ-centered recovery courses covering addiction, anger, self-harm, pornography, and gambling. All free in the app.' },
+              { href: '/aa-daily-reflections', icon: '📓', img: '/blog/aa-daily-reflections.jpg', title: 'AA Daily Reflections', desc: 'A faith-based take on AA daily reflections written by Joey, who has lived it. Book and app working together.' },
               { href: '/christian-rehab', icon: '🌅', img: '/blog/christian-rehab.jpg', title: 'Christian Rehab Support', desc: 'What happens every day after rehab is as important as the program itself. FaithSpark is your daily faith anchor.' },
             ].map((p) => (
               <Link href={p.href} key={p.href} className="hp-pillar-card">
@@ -138,7 +138,7 @@ export default function HomePage() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="btn-gold">🍎 Download Free — All of This Is Inside</a>
+            <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="btn-gold">🍎 Download Free. All of This Is Inside.</a>
           </div>
         </div>
       </div>
@@ -154,7 +154,7 @@ export default function HomePage() {
             { icon: '🙏', title: 'Guided Prayer', desc: '8 categories of guided audio prayer sessions for every moment.' },
             { icon: '✨', title: 'AI Devotionals', desc: 'Personalized daily devotionals written for your name and your life.' },
             { icon: '💤', title: 'Sleep Stories', desc: '10 faith-based sleep stories and bedtime prayers for restful nights.' },
-            { icon: '🔥', title: 'Spark — Your AI Companion', desc: 'Your personal faith friend who listens, remembers, and walks with you.' },
+            { icon: '🔥', title: 'Spark Your AI Companion', desc: 'Your personal faith friend who listens, remembers, and walks with you.' },
             { icon: '🎮', title: 'Bible Games & Plans', desc: 'Trivia, word search, reading plans, recovery courses, and more.' },
           ].map((f) => (
             <div className="hp-feature-card" key={f.title}>
@@ -175,10 +175,10 @@ export default function HomePage() {
             <p className="sec-sub">Spark is not a chatbot. He is a friend who remembers you, grows with you, and walks beside you every single day.</p>
             <ul className="spark-list">
               <li><span className="sli">🔥</span> Remembers your struggles, prayers, and victories across every conversation</li>
-              <li><span className="sli">🔥</span> Ask anything about the Bible, life, relationships, or faith — any time</li>
+              <li><span className="sli">🔥</span> Ask anything about the Bible, life, relationships, or faith at any time</li>
               <li><span className="sli">🔥</span> Reads your journal and prayer requests to truly know you</li>
               <li><span className="sli">🔥</span> Sends personal check-ins based on what you have been going through</li>
-              <li><span className="sli">🔥</span> Available 24/7 — whether you need prayer, guidance, or just a friend</li>
+              <li><span className="sli">🔥</span> Available 24/7 for prayer, guidance, or just a friend when you need one</li>
             </ul>
           </div>
           <div className="spark-right">
@@ -216,7 +216,7 @@ export default function HomePage() {
         <div className="blog-preview-inner">
           <p className="sec-eye">Faith Journal</p>
           <h2 className="sec-title">Articles to Grow<br /><span style={{ color: '#C8762A' }}>Your Faith</span></h2>
-          <p className="sec-sub">Real stories and biblical wisdom from a dad, husband, and truck driver still figuring it out — one day at a time.</p>
+          <p className="sec-sub">Real stories and biblical wisdom from a dad, husband, and truck driver still figuring it out one day at a time.</p>
           {latestPosts.length > 0 ? (
             <>
               <div className="free-grid" style={{ marginTop: '52px' }}>
@@ -244,7 +244,7 @@ export default function HomePage() {
             <p className="hp-author-role">Founder · FaithSpark · Mind Garden Press</p>
             <p className="hp-author-text">
               I&apos;m a truck driver, husband, and dad of four from Texas who found my faith on the long haul.
-              I built FaithSpark because I needed something real — a devotional that felt personal, a prayer life
+              I built FaithSpark because I needed something real. A devotional that felt personal, a prayer life
               that actually happened, and a companion for the quiet hours on the road. Everything in this app
               comes from what I personally needed and couldn&apos;t find anywhere else.
             </p>

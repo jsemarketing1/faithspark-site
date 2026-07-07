@@ -112,7 +112,7 @@ export default function AaDailyReflectionsPage() {
         <div style={S.heroInner}>
           <p style={S.tag}>AA Daily Reflections</p>
           <h1 style={S.h1}>AA Daily Reflections<br />With a Faith-Based Perspective</h1>
-          <p style={S.sub}>If you&apos;re in AA and your higher power has a name — Jesus — I wrote this for you. Daily reflection, Scripture, and prayer to carry your faith into your recovery, every single day.</p>
+          <p style={S.sub}>If you&apos;re in AA and your higher power has a name (Jesus), I wrote this for you. Daily reflection, Scripture, and prayer to carry your faith into your recovery every single day.</p>
           <div style={S.btnRow}>
             <a href="https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724" style={S.btnApple}>📱 Download FaithSpark Free</a>
             <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" style={S.btnPlay}>🤖 Get it on Google Play</a>

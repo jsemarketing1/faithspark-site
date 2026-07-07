@@ -101,7 +101,7 @@ export default function DailyDevotionalAppPage() {
         <div style={S.heroInner}>
           <p style={S.tag}>Daily Devotional App</p>
           <h1 style={S.h1}>The Daily Devotional App That<br />Knows Your Name</h1>
-          <p style={S.sub}>Every other devotional app sends you the same reading it sends everyone else. FaithSpark writes your devotional for you — based on your name, your season, and what you&apos;re walking through right now.</p>
+          <p style={S.sub}>Every other devotional app sends you the same reading it sends everyone else. FaithSpark writes your devotional for you based on your name, your season, and what you&apos;re walking through right now.</p>
           <div style={S.btnRow}>
             <a href="https://apps.apple.com/us/app/faithspark-ai-daily-devotional/id6761655724" style={S.btnApple}>📱 Download on App Store</a>
             <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" style={S.btnPlay}>🤖 Get it on Google Play</a>
