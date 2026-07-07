@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const latestPosts = getAllPosts().slice(0, 3);
+  const latestPosts = getAllPosts().slice(0, 6);
 
   const jsonLd = [
     {
@@ -35,7 +35,7 @@ export default function HomePage() {
       url: 'https://faithspark.app',
       downloadUrl: 'https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      author: { '@type': 'Organization', name: 'Mind Garden Press' },
+      author: { '@type': 'Person', name: 'Joey Etheridge' },
     },
     {
       '@context': 'https://schema.org',
@@ -50,19 +50,14 @@ export default function HomePage() {
   return (
     <div className="home-wrap">
       <MobileSplash />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <DarkNav />
       <Particles />
 
-      {/* HERO */}
+      {/* ── HERO ── */}
       <section className="hero">
         <div className="flame-wrap">
-          <div className="fr fr1" />
-          <div className="fr fr2" />
-          <div className="fr fr3" />
+          <div className="fr fr1" /><div className="fr fr2" /><div className="fr fr3" />
           <span className="flame-icon">🔥</span>
         </div>
         <p className="eyebrow">Introducing FaithSpark</p>
@@ -86,59 +81,57 @@ export default function HomePage() {
         <p className="free-note">Most features are <span>completely free</span> — no credit card needed</p>
       </section>
 
-      {/* VERSE */}
+      {/* ── VERSE ── */}
       <section className="verse" style={{ background: '#0d0800' }}>
         <p>&ldquo;Your word is a lamp to my feet and a light to my path.&rdquo;</p>
         <span>— Psalm 119:105</span>
       </section>
 
-      {/* PILLAR HUB */}
-      <div id="explore" style={{ background: '#060400', padding: '90px 0' }}>
+      {/* ── PILLAR HUB ── */}
+      <div id="explore" style={{ background: '#060400', padding: '80px 0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <p className="sec-eye">Explore FaithSpark</p>
           <h2 className="sec-title">Your Complete<br /><span style={{ color: '#C8762A' }}>Faith Hub</span></h2>
-          <p className="sec-sub" style={{ marginBottom: 56 }}>Tap any topic to go deeper — then download the app and get it all free.</p>
+          <p className="sec-sub" style={{ marginBottom: 52 }}>Tap any topic to go deeper — then download the app and get it all free.</p>
 
-          {/* DAILY FAITH ROW */}
-          <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.28em', color: '#C8762A', textTransform: 'uppercase' as const, marginBottom: 20 }}>Daily Faith</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, marginBottom: 56 }}>
+          <p className="hp-cat-label">Daily Faith</p>
+          <div className="hp-card-grid" style={{ marginBottom: 48 }}>
             {[
               { href: '/daily-bible-verse-app', icon: '📖', img: '/blog/bible-verse-daily-app.jpg', title: 'Daily Bible Verse App', desc: 'A verse every morning with a plain-English explanation — plus a scanner that reads any printed Bible.' },
               { href: '/daily-prayer-app', icon: '🙏', img: '/blog/prayer-app.jpg', title: 'Daily Prayer App', desc: 'Guided audio prayer, morning routines, a prayer list, and a companion who prays with you out loud.' },
               { href: '/daily-devotional-app', icon: '✨', img: '/blog/devotional-app.jpg', title: 'Daily Devotional App', desc: 'AI-personalized devotionals that know your name, your season, and what you\'re going through right now.' },
               { href: '/christian-sleep-meditation', icon: '💤', img: '/blog/sleep-meditation.jpg', title: 'Christian Sleep Meditation', desc: 'Faith-based sleep stories and bedtime prayer to help you rest in God\'s peace every night.' },
             ].map((p) => (
-              <Link href={p.href} key={p.href} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', minHeight: 300, display: 'flex', flexDirection: 'column' as const, justifyContent: 'flex-end', textDecoration: 'none', cursor: 'pointer' }}>
+              <Link href={p.href} key={p.href} className="hp-pillar-card">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.img} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' as const, opacity: 0.45 }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,4,0,0.95) 0%, rgba(6,4,0,0.3) 60%, transparent 100%)' }} />
-                <div style={{ position: 'relative', zIndex: 1, padding: '0 24px 28px' }}>
-                  <span style={{ fontSize: 28, marginBottom: 10, display: 'block' }}>{p.icon}</span>
-                  <h3 style={{ fontFamily: 'var(--font-cinzel)', fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 8, lineHeight: 1.3 }}>{p.title}</h3>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 16 }}>{p.desc}</p>
-                  <span style={{ display: 'inline-block', background: '#C8762A', color: '#fff', padding: '7px 16px', borderRadius: 50, fontSize: 12, fontWeight: 700, letterSpacing: '0.05em' }}>Learn More →</span>
+                <img src={p.img} alt={p.title} className="hp-pillar-img" />
+                <div className="hp-pillar-overlay" />
+                <div className="hp-pillar-body">
+                  <span className="hp-pillar-icon">{p.icon}</span>
+                  <h3 className="hp-pillar-title">{p.title}</h3>
+                  <p className="hp-pillar-desc">{p.desc}</p>
+                  <span className="hp-pillar-btn">Learn More →</span>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* RECOVERY ROW */}
-          <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: 11, letterSpacing: '0.28em', color: '#C8762A', textTransform: 'uppercase' as const, marginBottom: 20 }}>Recovery &amp; Healing</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20, marginBottom: 56 }}>
+          <p className="hp-cat-label">Recovery &amp; Healing</p>
+          <div className="hp-card-grid hp-card-grid-3" style={{ marginBottom: 48 }}>
             {[
               { href: '/christian-recovery', icon: '🕊️', img: '/blog/christian-recovery.jpg', title: 'Christian Recovery', desc: 'Five Christ-centered recovery courses covering addiction, anger, self-harm, pornography, and gambling — free in the app.' },
               { href: '/aa-daily-reflections', icon: '📓', img: '/blog/aa-daily-reflections.jpg', title: 'AA Daily Reflections', desc: 'A faith-based take on AA daily reflections — written by Joey, who\'s lived it. Book + app working together.' },
               { href: '/christian-rehab', icon: '🌅', img: '/blog/christian-rehab.jpg', title: 'Christian Rehab Support', desc: 'What happens every day after rehab is as important as the program itself. FaithSpark is your daily faith anchor.' },
             ].map((p) => (
-              <Link href={p.href} key={p.href} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', minHeight: 300, display: 'flex', flexDirection: 'column' as const, justifyContent: 'flex-end', textDecoration: 'none', cursor: 'pointer' }}>
+              <Link href={p.href} key={p.href} className="hp-pillar-card">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.img} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' as const, opacity: 0.45 }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(6,4,0,0.95) 0%, rgba(6,4,0,0.3) 60%, transparent 100%)' }} />
-                <div style={{ position: 'relative', zIndex: 1, padding: '0 24px 28px' }}>
-                  <span style={{ fontSize: 28, marginBottom: 10, display: 'block' }}>{p.icon}</span>
-                  <h3 style={{ fontFamily: 'var(--font-cinzel)', fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 8, lineHeight: 1.3 }}>{p.title}</h3>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6, marginBottom: 16 }}>{p.desc}</p>
-                  <span style={{ display: 'inline-block', background: '#C8762A', color: '#fff', padding: '7px 16px', borderRadius: 50, fontSize: 12, fontWeight: 700, letterSpacing: '0.05em' }}>Learn More →</span>
+                <img src={p.img} alt={p.title} className="hp-pillar-img" />
+                <div className="hp-pillar-overlay" />
+                <div className="hp-pillar-body">
+                  <span className="hp-pillar-icon">{p.icon}</span>
+                  <h3 className="hp-pillar-title">{p.title}</h3>
+                  <p className="hp-pillar-desc">{p.desc}</p>
+                  <span className="hp-pillar-btn">Learn More →</span>
                 </div>
               </Link>
             ))}
@@ -150,42 +143,30 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* FREE FEATURES */}
+      {/* ── APP FEATURES STRIP (6 items) ── */}
       <section className="section" id="features" style={{ background: '#0d0800' }}>
-        <p className="sec-eye">What&apos;s Included Free</p>
-        <h2 className="sec-title">Everything You Need.<br />Completely Free.</h2>
-        <p className="sec-sub">No paywalls on the good stuff. FaithSpark gives you a full, rich faith experience at zero cost.</p>
-
-        <div className="free-grid">
+        <p className="sec-eye">What&apos;s Inside</p>
+        <h2 className="sec-title">Everything You Need.<br /><span style={{ color: '#C8762A' }}>Completely Free.</span></h2>
+        <p className="sec-sub">No paywalls on the good stuff.</p>
+        <div className="hp-features-grid">
           {[
-            { icon: '📖', title: 'Full Bible Reader', desc: 'Complete KJV Bible with read-aloud and scripture search. Carry the entire Word of God in your pocket.' },
-            { icon: '🙏', title: 'Community Prayer Board', desc: 'Share prayer requests, pray for others, and build real community with believers around the world.' },
-            { icon: '👨‍👩‍👧‍👦', title: '52-Week Family Bible Study', desc: 'A full year of guided family Bible studies to build a lasting legacy of faith in your home.' },
-            { icon: '📚', title: 'Bible Courses', desc: 'Deep dive courses on the Life of Jesus, Bible Characters, Prophecy, Addiction Recovery, and Lifestyle plans.' },
-            { icon: '✏️', title: 'Faith Journal', desc: 'Write, reflect, and grow. Your personal faith journal to capture thoughts, prayers, and insights every day.' },
-            { icon: '🎮', title: 'Bible Games', desc: 'Word Search, Trivia, Sudoku, Fill-in-the-Blank, Faith Dice, and Word Scramble. Learn scripture while having fun.' },
-            { icon: '✨', title: 'Daily Devotionals', desc: 'A fresh, personalized devotional every morning to start your day grounded in faith and scripture.' },
-            { icon: '📷', title: 'Bible Scanner', desc: 'Point your camera at any printed verse and FaithSpark instantly identifies and opens it for you.' },
-            { icon: '⚡', title: 'Instant Prayer', desc: 'Need a prayer right now? Tap once and receive a heartfelt, scripture-backed prayer for your moment.' },
-            { icon: '📖', title: 'Bible Reading Plans', desc: '7 complete plans — Life of Jesus, Psalms, Proverbs, New Testament, and more. Day-by-day readings, reflection questions, streaks, and progress tracking.' },
-            { icon: '🌅', title: 'Morning & Evening Routines', desc: 'A time-aware card that changes throughout your day — Morning, Midday, Evening, and Bedtime — with quick-action buttons for exactly the right feature at the right moment.' },
-            { icon: '🙏', title: 'Guided Prayer Sessions', desc: '8 categories including Morning Prayer, Anxiety & Peace, Grief, and Gratitude. A personal prayer is read aloud with natural pauses and a calming animation.' },
-            { icon: '💤', title: 'Sleep Stories & Bedtime Prayers', desc: '10 soothing Bible stories read slowly at bedtime — The Good Shepherd, Cast Your Worries, Peace Like a River, and more. Ultra-dark screen with a breathing animation.' },
-            { icon: '🎨', title: 'Scripture Art', desc: 'Turn any of 12 featured verses into a beautiful shareable image. Choose from 5 gradient themes — Flame, Ocean, Forest, Royal, or Dawn — and save or share it instantly.' },
-            { icon: '📰', title: 'Christian News', desc: 'Stay connected with the latest news from the Christian world. Fresh content delivered daily.' },
-            { icon: '⛪', title: 'Find a Church', desc: 'Discover churches near you right from the app. Search by location and find your faith community.' },
+            { icon: '📖', title: 'Full Bible Reader', desc: 'Complete KJV with read-aloud, search, and bookmarks.' },
+            { icon: '🙏', title: 'Guided Prayer', desc: '8 categories of guided audio prayer sessions for every moment.' },
+            { icon: '✨', title: 'AI Devotionals', desc: 'Personalized daily devotionals written for your name and your life.' },
+            { icon: '💤', title: 'Sleep Stories', desc: '10 faith-based sleep stories and bedtime prayers for restful nights.' },
+            { icon: '🔥', title: 'Spark — Your AI Companion', desc: 'Your personal faith friend who listens, remembers, and walks with you.' },
+            { icon: '🎮', title: 'Bible Games & Plans', desc: 'Trivia, word search, reading plans, recovery courses, and more.' },
           ].map((f) => (
-            <div className="free-card" key={f.title}>
-              <span className="free-card-icon">{f.icon}</span>
-              <h3 className="free-card-title">{f.title}</h3>
-              <p className="free-card-desc">{f.desc}</p>
-              <span className="free-badge">Always Free</span>
+            <div className="hp-feature-card" key={f.title}>
+              <span className="hp-feature-icon">{f.icon}</span>
+              <h3 className="hp-feature-title">{f.title}</h3>
+              <p className="hp-feature-desc">{f.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* SPARK */}
+      {/* ── SPARK ── */}
       <section className="spark-wrap" id="spark">
         <div className="spark-inner">
           <div className="spark-left">
@@ -202,16 +183,14 @@ export default function HomePage() {
           </div>
           <div className="spark-right">
             <div className="spark-glow">
-              <div className="sgr sgr1" />
-              <div className="sgr sgr2" />
-              <div className="sgr sgr3" />
+              <div className="sgr sgr1" /><div className="sgr sgr2" /><div className="sgr sgr3" />
               <span className="spark-flame-big">🔥</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* VIDEOS */}
+      {/* ── VIDEO ── */}
       <section className="videos-wrap" id="videos">
         <div className="videos-inner">
           <p className="sec-eye" style={{ textAlign: 'center' }}>See It In Action</p>
@@ -232,47 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHAT YOU GET */}
-      <section className="pricing-wrap" id="pricing" style={{ background: '#0d0800' }}>
-        <p className="sec-eye">Everything You Get</p>
-        <h2 className="sec-title">It&apos;s Free.<br />All of It.</h2>
-        <p className="sec-sub">No credit card. No trial countdown. No paywall on the good stuff. Download FaithSpark and get all of this — completely free.</p>
-        <div className="all-features-grid">
-          {[
-            { icon: '📖', name: 'Full KJV Bible Reader', desc: 'The complete Word of God with read-aloud, verse search, bookmarks, and reading position saved automatically.' },
-            { icon: '📷', name: 'Bible Scanner', desc: 'Point your camera at any printed verse or passage and FaithSpark instantly identifies and opens it in the app.' },
-            { icon: '✨', name: 'Daily Devotionals', desc: 'A fresh, personalized devotional every morning to start your day grounded in faith and scripture.' },
-            { icon: '⚡', name: 'Instant Prayer', desc: 'Need a prayer right now? Tap once and receive a heartfelt, scripture-backed prayer tailored to your moment.' },
-            { icon: '🙏', name: 'Community Prayer Board', desc: 'Share requests, pray for others, and build real community with believers around the world.' },
-            { icon: '🔥', name: 'Spark — AI Faith Companion', desc: 'Your personal AI friend who listens, remembers, and walks beside you every day. Ask anything about the Bible, life, or faith.' },
-            { icon: '👨‍👩‍👧‍👦', name: '52-Week Family Bible Study', desc: 'A full year of guided family studies to build a lasting legacy of faith in your home.' },
-            { icon: '📚', name: 'Bible Courses', desc: 'Deep dive courses on the Life of Jesus, Bible Characters, Prophecy, Addiction Recovery, and Lifestyle plans.' },
-            { icon: '✏️', name: 'Faith Journal', desc: 'Write, reflect, and grow. Capture your thoughts, prayers, and spiritual insights every single day.' },
-            { icon: '🎮', name: 'Bible Games', desc: 'Word Search, Trivia, Sudoku, Fill-in-the-Blank, Faith Dice, and Word Scramble. Learn scripture while having fun.' },
-            { icon: '📖', name: 'Bible Reading Plans', desc: '7 complete plans — Life of Jesus (40 days), Psalms in 30 Days, 7 Days of Peace, Proverbs, New Testament in 90 Days, 14 Days of Gratitude, and Women of the Bible. Day-by-day readings, streaks, and progress tracking.' },
-            { icon: '🌅', name: 'Morning & Evening Routines', desc: 'A time-aware card that shifts throughout your day — Morning, Midday, Evening, and Bedtime — surfacing the right feature at exactly the right moment.' },
-            { icon: '🙏', name: 'Guided Prayer Sessions', desc: '8 categories including Morning Prayer, Anxiety & Peace, Grief, Gratitude, and Faith & Trust. A personal prayer is generated and read aloud with a calming animated display.' },
-            { icon: '💤', name: 'Sleep Stories & Bedtime Prayers', desc: '10 soothing Bible stories read slowly at bedtime. Ultra-dark screen, breathing orb animation, and a gentle pace designed to help you drift off in peace and faith.' },
-            { icon: '🎨', name: 'Scripture Art', desc: 'Turn any of 12 featured verses into a stunning shareable image. 5 gradient themes — Flame, Ocean, Forest, Royal, Dawn. Save to your camera roll or share to any app instantly.' },
-            { icon: '📰', name: 'Christian News', desc: 'Stay connected with fresh daily news from the Christian world delivered right to your feed.' },
-            { icon: '⛪', name: 'Find a Church', desc: 'Discover churches near you and find your faith community — right from inside the app.' },
-          ].map((f) => (
-            <div className="af-card" key={f.name}>
-              <span className="af-icon">{f.icon}</span>
-              <div>
-                <p className="af-name">{f.name}</p>
-                <p className="af-desc">{f.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="pricing-note">No credit card. No expiry. Download and start today — free.</p>
-        <p className="premium-whisper">
-          * Want to go deeper? A premium plan is available inside the app for those who want unlimited AI devotionals and unlimited Spark conversations.
-        </p>
-      </section>
-
-      {/* BLOG PREVIEW */}
+      {/* ── BLOG PREVIEW ── */}
       <section className="blog-preview-wrap" id="blog">
         <div className="blog-preview-inner">
           <p className="sec-eye">Faith Journal</p>
@@ -290,41 +229,71 @@ export default function HomePage() {
               </div>
             </>
           ) : (
-            <p style={{ textAlign: 'center', marginTop: '52px', color: 'rgba(255,255,255,0.4)', fontSize: '16px' }}>
-              Articles coming soon — check back shortly.
-            </p>
+            <p style={{ textAlign: 'center', marginTop: '52px', color: 'rgba(255,255,255,0.4)', fontSize: '16px' }}>Articles coming soon.</p>
           )}
         </div>
       </section>
 
-      {/* DOWNLOAD */}
-      <section className="dl-wrap" id="download">
-        <h2 className="dl-title">Ready to Begin<br />Your Journey?</h2>
-        <p className="dl-sub">Download FaithSpark free today.<br />Your faith companion is waiting.</p>
-        <div className="dl-btns">
-          <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="store-btn apple">
-            <span className="sb-icon">🍎</span>
-            <span className="sb-text">
-              <span className="sb-sub">Download on the</span>
-              <span className="sb-name">App Store</span>
-            </span>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" className="store-btn">
-            <span className="sb-icon">🤖</span>
-            <span className="sb-text">
-              <span className="sb-sub">Get it on</span>
-              <span className="sb-name">Google Play</span>
-            </span>
-          </a>
-          <a href="https://app.faithspark.app" className="store-btn web" target="_blank" rel="noopener noreferrer">
-            <span className="sb-icon">💻</span>
-            <span className="sb-text">
-              <span className="sb-sub">Open in Browser</span>
-              <span className="sb-name">Web App</span>
-            </span>
-          </a>
+      {/* ── AUTHOR BIO ── */}
+      <div style={{ padding: '0 24px 72px', maxWidth: 800, margin: '0 auto' }}>
+        <div className="hp-author-bio">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/blog/joey.png" alt="Joey Etheridge, creator of FaithSpark" className="hp-author-avatar" loading="lazy" />
+          <div>
+            <p className="hp-author-name">Joey Etheridge</p>
+            <p className="hp-author-role">Founder · FaithSpark · Mind Garden Press</p>
+            <p className="hp-author-text">
+              I&apos;m a truck driver, husband, and dad of four from Texas who found my faith on the long haul.
+              I built FaithSpark because I needed something real — a devotional that felt personal, a prayer life
+              that actually happened, and a companion for the quiet hours on the road. Everything in this app
+              comes from what I personally needed and couldn&apos;t find anywhere else.
+            </p>
+          </div>
         </div>
-      </section>
+      </div>
+
+      {/* ── APP CTA BOX ── */}
+      <div style={{ padding: '0 24px 72px', maxWidth: 800, margin: '0 auto' }}>
+        <div className="hp-cta-box">
+          <h3 className="hp-cta-title">Take FaithSpark on the Road 🚛</h3>
+          <p className="hp-cta-desc">
+            AI devotionals written just for you, guided prayer, full Bible reader, sleep stories,
+            and five Christ-centered recovery courses — all free. Built by a truck driver who needed it.
+          </p>
+          <div className="hp-cta-btns">
+            <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="hp-cta-btn" target="_blank" rel="noopener noreferrer">
+              📱 Download on iOS
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.mindgardenpress.faithspark&pcampaignid=web_share" className="hp-cta-btn hp-cta-btn-secondary" target="_blank" rel="noopener noreferrer">
+              🤖 Get on Android
+            </a>
+            <a href="https://app.faithspark.app" className="hp-cta-btn hp-cta-btn-secondary" target="_blank" rel="noopener noreferrer">
+              💻 Open Web App
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ── SEO CONTENT BLOCK ── */}
+      <div style={{ padding: '0 24px 80px', maxWidth: 800, margin: '0 auto' }}>
+        <div className="hp-seo-block">
+          <h2 className="hp-seo-title">A Faith App Built for Every Season of Life</h2>
+          <p className="hp-seo-text">
+            FaithSpark is the free Christian faith app for people who want their faith to be real every day — not just on Sundays.
+            Looking for a <Link href="/daily-bible-verse-app">daily Bible verse app</Link> that explains the verse in plain English?
+            Want a <Link href="/daily-prayer-app">daily prayer app</Link> that actually guides you through prayer out loud?
+            Need a <Link href="/daily-devotional-app">daily devotional app</Link> that writes something personal to you every morning?
+            FaithSpark has all of it free on iOS and Android.
+            Struggling to sleep? The <Link href="/christian-sleep-meditation">Christian sleep meditation</Link> and bedtime prayer features
+            are built to help you rest in God&apos;s peace.
+            Walking through recovery? The <Link href="/christian-recovery">Christian recovery</Link> courses,
+            <Link href="/aa-daily-reflections"> AA daily reflections</Link> book, and
+            <Link href="/christian-rehab"> Christian rehab</Link> support page are all here for you.
+            And for deeper reading, the <Link href="/blog">FaithSpark devotional blog</Link> has over 30 articles
+            on Scripture, prayer, and faith for real life.
+          </p>
+        </div>
+      </div>
 
       <DarkFooter />
     </div>
