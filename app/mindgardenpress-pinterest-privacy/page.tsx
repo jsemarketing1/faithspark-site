@@ -13,10 +13,19 @@ export default function MindGardenPressPinterestPrivacyPage() {
 
       <p>
         Content Auto-Poster is a personal, single-user desktop application built and
-        operated by Joey Etheridge (Mind Garden Press) for posting original devotional
-        image content to a single Pinterest account that the developer owns and
-        controls. It is not a public product, is not distributed to other users, and
-        does not collect or process data belonging to anyone other than the developer.
+        operated by Joey Etheridge, owner of Mind Garden Press, for posting original
+        devotional image content to a single Pinterest account that the developer
+        owns and controls. It is not a public product, is not distributed to other
+        users, and does not collect or process data belonging to anyone other than
+        the developer.
+      </p>
+      <p>
+        <em>
+          This policy is hosted at faithspark.app because FaithSpark is another
+          product developed and operated by the same company, Mind Garden Press —
+          the developer of Content Auto-Poster, the application this Pinterest
+          integration belongs to.
+        </em>
       </p>
 
       <h2>What Pinterest data the app accesses</h2>
