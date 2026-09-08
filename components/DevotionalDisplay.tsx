@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { DevotionalEntry } from '@/lib/devotionals';
 import DevotionalShareButton from './DevotionalShareButton';
+import OptinForm from './OptinForm';
 
 type Props = {
   devotional: DevotionalEntry | null;
@@ -21,6 +22,9 @@ export default function DevotionalDisplay({ devotional }: Props) {
           <p className="devotional-hero-date">{todayLabel}</p>
           <h1 className="devotional-hero-title">Daily Devotional</h1>
         </div>
+        <div className="optin-wrap" style={{ padding: '24px 24px 0' }}>
+          <OptinForm />
+        </div>
         <div className="devotional-body">
           <p className="devotional-empty">Today&apos;s devotional could not be loaded. Please try again shortly.</p>
         </div>
@@ -38,6 +42,10 @@ export default function DevotionalDisplay({ devotional }: Props) {
         <p className="devotional-hero-date">{devotional.date} · {todayLabel}</p>
         <h1 className="devotional-hero-title">{devotional.title}</h1>
         <p className="devotional-hero-scripture">{devotional.scripture}</p>
+      </div>
+
+      <div className="optin-wrap" style={{ padding: '24px 24px 0' }}>
+        <OptinForm />
       </div>
 
       <div className="devotional-body">

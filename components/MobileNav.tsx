@@ -51,19 +51,19 @@ export default function MobileNav() {
       <div
         style={{
           position: 'fixed', inset: 0,
-          background: 'rgba(0,0,0,0.65)',
+          background: 'rgba(0,0,0,0.5)',
           zIndex: 99997,
         }}
         onClick={close}
       />
 
-      {/* Drawer */}
+      {/* Drawer — stays dark to match the nav bar it opens from */}
       <div
         style={{
           position: 'fixed', top: 0, right: 0, bottom: 0,
           width: 'min(300px, 85vw)',
-          background: '#1a1208',
-          borderLeft: '1px solid rgba(200,118,42,0.25)',
+          background: '#1A2B1F',
+          borderLeft: '1px solid rgba(255,255,255,0.1)',
           zIndex: 99998,
           display: 'flex', flexDirection: 'column', alignItems: 'center',
           padding: '20px 24px 44px',
@@ -105,7 +105,7 @@ export default function MobileNav() {
           }}
         >
           <span style={{ color: '#ffffff', fontWeight: 400 }}>Faith</span>
-          <span style={{ color: '#C8762A', fontWeight: 700 }}>Spark</span>
+          <span style={{ color: '#52B788', fontWeight: 700 }}>Spark</span>
         </Link>
 
         {/* Nav links */}
@@ -122,12 +122,12 @@ export default function MobileNav() {
               onClick={close}
               style={{
                 display: 'block',
-                color: 'rgba(255,255,255,0.75)',
+                color: 'rgba(255,255,255,0.85)',
                 textDecoration: 'none',
                 fontSize: 17,
                 letterSpacing: '0.08em',
                 padding: '15px 0',
-                borderBottom: '1px solid rgba(255,255,255,0.07)',
+                borderBottom: '1px solid rgba(255,255,255,0.1)',
                 transition: 'color 0.2s',
               }}
             >
@@ -141,7 +141,7 @@ export default function MobileNav() {
             onClick={close}
             style={{
               display: 'block',
-              color: 'rgba(255,255,255,0.75)',
+              color: 'rgba(255,255,255,0.85)',
               textDecoration: 'none',
               fontSize: 17,
               letterSpacing: '0.08em',
@@ -179,7 +179,7 @@ export default function MobileNav() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={s.label}
-              style={{ color: 'rgba(255,255,255,0.6)', display: 'flex' }}
+              style={{ color: 'rgba(255,255,255,0.7)', display: 'flex' }}
             >
               {s.svg}
             </a>

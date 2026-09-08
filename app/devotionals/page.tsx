@@ -50,7 +50,7 @@ export default async function DevotionalsPage() {
       )}
       <DarkNav />
       <DevotionalDisplay devotional={devotional} />
-      <DarkFooter />
+      <DarkFooter showOptin={false} />
     </div>
   );
 }

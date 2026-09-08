@@ -15,7 +15,7 @@ export default function MobileSplash() {
       position: 'fixed',
       inset: 0,
       zIndex: 99999,
-      background: '#1a1208',
+      background: 'linear-gradient(135deg, #1A2B1F 0%, #2D6A4F 60%, #142218 100%)',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -35,16 +35,16 @@ export default function MobileSplash() {
       {/* Logo */}
       <p style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1 }}>
         <span style={{ color: '#ffffff', fontWeight: 400 }}>Faith</span>
-        <span style={{ color: '#C8762A' }}>Spark</span>
+        <span style={{ color: '#52B788' }}>Spark</span>
       </p>
 
       {/* Tagline */}
-      <p style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: 13, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.18em', marginBottom: 10 }}>
+      <p style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: 13, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.18em', marginBottom: 10 }}>
         Faith That Knows Your Name
       </p>
 
       {/* Description */}
-      <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.65, maxWidth: 300, marginBottom: 36 }}>
+      <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.8)', lineHeight: 1.65, maxWidth: 300, marginBottom: 36 }}>
         Free devotionals, Bible reader, guided prayer, and your personal AI faith companion — all in one app.
       </p>
 
@@ -84,8 +84,8 @@ export default function MobileSplash() {
           maxWidth: 300,
           padding: '16px 24px',
           borderRadius: 50,
-          background: 'rgba(255,255,255,0.08)',
-          border: '1px solid rgba(255,255,255,0.18)',
+          background: 'rgba(255,255,255,0.1)',
+          border: '1px solid rgba(255,255,255,0.25)',
           color: '#ffffff',
           fontSize: 16,
           fontWeight: 700,
@@ -102,11 +102,11 @@ export default function MobileSplash() {
         style={{
           background: 'none',
           border: 'none',
-          color: 'rgba(255,255,255,0.4)',
+          color: 'rgba(255,255,255,0.65)',
           fontSize: 13,
           cursor: 'pointer',
           textDecoration: 'underline',
-          textDecorationColor: 'rgba(255,255,255,0.2)',
+          textDecorationColor: 'rgba(255,255,255,0.3)',
           padding: 0,
         }}
       >

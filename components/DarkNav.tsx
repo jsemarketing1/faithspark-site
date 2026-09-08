@@ -39,14 +39,14 @@ export default function DarkNav() {
       <Link href="/" className="logo">
         <span className="f">Faith</span><span className="s">Spark</span>
       </Link>
-      <div className="nav-social">
-        {socialLinks.map((s) => (
-          <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="nav-social-icon" aria-label={s.label}>
-            {s.svg}
-          </a>
-        ))}
-      </div>
       <div className="nav-right">
+        <div className="nav-social">
+          {socialLinks.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="nav-social-icon" aria-label={s.label}>
+              {s.svg}
+            </a>
+          ))}
+        </div>
         <Link href="/#features">Features</Link>
         <Link href="/#videos">Videos</Link>
         <Link href="/devotionals">Devotionals</Link>

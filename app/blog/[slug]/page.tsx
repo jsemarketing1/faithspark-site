@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <span>›</span>
           <Link href="/blog">Blog</Link>
           <span>›</span>
-          <span style={{ color: 'rgba(255,255,255,0.6)' }}>{post.title}</span>
+          <span style={{ color: '#6B7B6E' }}>{post.title}</span>
         </nav>
 
         {post.tags?.length > 0 && (
@@ -126,7 +126,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         />
 
         {/* Author bio */}
-        <div style={{ marginTop: '48px', padding: '28px 32px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+        <div style={{ marginTop: '48px', padding: '28px 32px', background: '#ffffff', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '20px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/blog/jands.webp"
@@ -134,9 +134,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', flexShrink: 0, border: '2px solid rgba(200,118,42,0.6)' }}
           />
           <div>
-            <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '17px', color: '#ffffff', marginBottom: '4px', fontWeight: 700 }}>Joey</p>
+            <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '17px', color: '#1A2B1F', marginBottom: '4px', fontWeight: 700 }}>Joey</p>
             <p style={{ fontSize: '13px', color: '#C8762A', marginBottom: '12px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Truck Driver · Dad of 6 · Founder of FaithSpark</p>
-            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.75', margin: 0 }}>
+            <p style={{ fontSize: '14px', color: '#6B7B6E', lineHeight: '1.75', margin: 0 }}>
               Joey grew up with an alcoholic father and found his way to faith through his grandmother&apos;s church as a teenager. After years on the road, a hard season in his 20s, and a life rebuilt around God, family, and Scripture, he created FaithSpark — a daily devotional app built for real people in real life. He lives in Texas with his wife Stephanie and their six kids.
             </p>
           </div>
@@ -173,8 +173,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         <div style={{ marginTop: '60px', padding: '32px', background: 'rgba(200,118,42,0.08)', border: '1px solid rgba(200,118,42,0.25)', borderRadius: '20px', textAlign: 'center' }}>
-          <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '18px', color: '#ffffff', marginBottom: '12px' }}>Want a Faith Companion in Your Pocket?</p>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '15px', marginBottom: '24px', lineHeight: '1.7' }}>
+          <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '18px', color: '#1A2B1F', marginBottom: '12px' }}>Want a Faith Companion in Your Pocket?</p>
+          <p style={{ color: '#6B7B6E', fontSize: '15px', marginBottom: '24px', lineHeight: '1.7' }}>
             FaithSpark gives you daily devotionals, guided prayer, a full Bible reader, and Spark — your personal AI faith companion. All free.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>

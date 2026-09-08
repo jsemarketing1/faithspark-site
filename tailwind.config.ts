@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         gold: '#C8762A',
         'gold-light': '#E8943A',
-        dark: '#0d0800',
+        dark: '#1A2B1F',
       },
       fontFamily: {
         cinzel: ['var(--font-cinzel)', 'serif'],

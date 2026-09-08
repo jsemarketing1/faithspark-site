@@ -83,18 +83,18 @@ export default function HomePage() {
       </section>
 
       {/* ── VERSE ── */}
-      <section className="verse" style={{ background: '#1a1208' }}>
+      <section className="verse" style={{ background: '#F9F6F0' }}>
         <p>&ldquo;Your word is a lamp to my feet and a light to my path.&rdquo;</p>
         <span>— Psalm 119:105</span>
       </section>
 
       {/* ── OPT-IN ── */}
-      <div className="optin-wrap" style={{ background: '#1a1208', padding: '48px 0 8px' }}>
+      <div className="optin-wrap" style={{ background: '#F9F6F0', padding: '48px 0 8px' }}>
         <OptinForm />
       </div>
 
       {/* ── PILLAR HUB ── */}
-      <div id="explore" style={{ background: '#160d04', padding: '80px 0' }}>
+      <div id="explore" style={{ background: '#F9F6F0', padding: '80px 0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <p className="sec-eye">Explore FaithSpark</p>
           <h2 className="sec-title">Your Complete<br /><span style={{ color: '#C8762A' }}>Faith Hub</span></h2>
@@ -150,7 +150,7 @@ export default function HomePage() {
       </div>
 
       {/* ── APP FEATURES STRIP (6 items) ── */}
-      <section className="section" id="features" style={{ background: '#1a1208' }}>
+      <section className="section" id="features" style={{ background: '#F9F6F0' }}>
         <p className="sec-eye">What&apos;s Inside</p>
         <h2 className="sec-title">Everything You Need.<br /><span style={{ color: '#C8762A' }}>Completely Free.</span></h2>
         <p className="sec-sub">No paywalls on the good stuff.</p>
@@ -235,7 +235,7 @@ export default function HomePage() {
               </div>
             </>
           ) : (
-            <p style={{ textAlign: 'center', marginTop: '52px', color: 'rgba(255,255,255,0.4)', fontSize: '16px' }}>Articles coming soon.</p>
+            <p style={{ textAlign: 'center', marginTop: '52px', color: '#6B7B6E', fontSize: '16px' }}>Articles coming soon.</p>
           )}
         </div>
       </section>
