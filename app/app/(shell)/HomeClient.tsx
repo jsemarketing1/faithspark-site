@@ -13,10 +13,11 @@ import { ProgressModal, READING_PROGRESS_KEY } from "@/components/app/ProgressMo
 const QUICK_ACTIONS = [
   { icon: "📖", label: "Devotionals", to: "/app/devotionals/", live: true },
   { icon: "📕", label: "Bible Reader", to: "/app/bible-reader/", live: true },
-  { icon: "🗺️", label: "Reading Plans", to: "/app/reading-plans/", live: false },
+  { icon: "🗺️", label: "Reading Plans", to: "/app/reading-plans/", live: true },
   { icon: "🙏", label: "Prayer Board", to: "/app/prayer-board/", live: true },
   { icon: "📝", label: "Journal", to: "/app/journal/", live: true },
-  { icon: "🎨", label: "Scripture Art", to: "/app/scripture-art/", live: false },
+  { icon: "👨‍👩‍👧", label: "Bible Study", to: "/app/bible-study/", live: true },
+  { icon: "🎨", label: "Scripture Art", to: "/app/scripture-art/", live: true },
   { icon: "🎮", label: "Games", to: "/app/games/", live: false },
   { icon: "🌍", label: "Explore", to: "/app/explore/", live: false },
 ];
