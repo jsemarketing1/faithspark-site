@@ -4,6 +4,7 @@ import Link from 'next/link';
 import DarkNav from '@/components/DarkNav';
 import DarkFooter from '@/components/DarkFooter';
 import BlogCard from '@/components/BlogCard';
+import OptinForm from '@/components/OptinForm';
 import { getAllPosts, getPost } from '@/lib/posts';
 
 export async function generateStaticParams() {
@@ -89,6 +90,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       ) : (
         <div className="blog-hero-placeholder">✝️</div>
       )}
+
+      <div className="optin-wrap" style={{ padding: '32px 24px 0' }}>
+        <OptinForm />
+      </div>
 
       <div className="blog-article-wrap">
         <nav className="blog-breadcrumb" aria-label="Breadcrumb">
@@ -190,7 +195,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       </div>
 
-      <DarkFooter />
+      <DarkFooter showOptin={false} />
     </div>
   );
 }

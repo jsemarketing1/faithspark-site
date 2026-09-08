@@ -7,6 +7,7 @@ import DarkFooter from '@/components/DarkFooter';
 import Particles from '@/components/Particles';
 import BlogCard from '@/components/BlogCard';
 import MobileSplash from '@/components/MobileSplash';
+import OptinForm from '@/components/OptinForm';
 import { getAllPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
@@ -86,6 +87,11 @@ export default function HomePage() {
         <p>&ldquo;Your word is a lamp to my feet and a light to my path.&rdquo;</p>
         <span>— Psalm 119:105</span>
       </section>
+
+      {/* ── OPT-IN ── */}
+      <div className="optin-wrap" style={{ background: '#1a1208', padding: '48px 0 8px' }}>
+        <OptinForm />
+      </div>
 
       {/* ── PILLAR HUB ── */}
       <div id="explore" style={{ background: '#160d04', padding: '80px 0' }}>
@@ -295,7 +301,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <DarkFooter />
+      <DarkFooter showOptin={false} />
     </div>
   );
 }

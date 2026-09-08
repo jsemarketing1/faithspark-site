@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import OptinForm from '@/components/OptinForm';
 
-export default function DarkFooter() {
+export default function DarkFooter({ showOptin = true }: { showOptin?: boolean }) {
   const year = new Date().getFullYear();
   return (
     <footer>
-      <div className="optin-wrap">
-        <OptinForm />
-      </div>
+      {showOptin && (
+        <div className="optin-wrap">
+          <OptinForm />
+        </div>
+      )}
       <div className="ft-grid">
         {/* Brand */}
         <div>
