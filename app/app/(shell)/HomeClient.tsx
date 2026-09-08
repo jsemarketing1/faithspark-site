@@ -18,7 +18,7 @@ const QUICK_ACTIONS = [
   { icon: "📝", label: "Journal", to: "/app/journal/", live: true },
   { icon: "👨‍👩‍👧", label: "Bible Study", to: "/app/bible-study/", live: true },
   { icon: "🎨", label: "Scripture Art", to: "/app/scripture-art/", live: true },
-  { icon: "🎮", label: "Games", to: "/app/games/", live: false },
+  { icon: "🎮", label: "Games", to: "/app/games/", live: true },
   { icon: "🌍", label: "Explore", to: "/app/explore/", live: false },
 ];
 

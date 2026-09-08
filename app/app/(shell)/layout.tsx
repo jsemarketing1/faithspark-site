@@ -23,7 +23,7 @@ const NAV_ITEMS = [
   { href: "/app/bible-study/", icon: "👨‍👩‍👧", label: "Bible Study", live: true },
   { href: "/app/scripture-art/", icon: "🎨", label: "Scripture Art", live: true },
   { href: "/app/explore/", icon: "🌍", label: "Explore", live: false },
-  { href: "/app/games/", icon: "🎮", label: "Games & Activities", live: false },
+  { href: "/app/games/", icon: "🎮", label: "Games & Activities", live: true },
 ];
 
 export default function AppShellLayout({ children }: { children: React.ReactNode }) {
