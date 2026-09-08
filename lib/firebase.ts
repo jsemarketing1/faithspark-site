@@ -12,13 +12,19 @@ const firebaseConfig = {
 
 let auth: Auth | undefined;
 
-// Only initialize in the browser. Next.js still executes "use client"
-// component code once on the server to produce the prerendered HTML, and
-// getAuth() throws immediately when the config is missing/invalid — which
-// would otherwise take down every statically-generated page's build.
-if (typeof window !== "undefined") {
-  const app: FirebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
-  auth = getAuth(app);
+// Only initialize in the browser, and only with a real config. Next.js
+// still executes "use client" component code once on the server to
+// produce the prerendered HTML, and getAuth() throws synchronously
+// whenever the config is missing/invalid — uncaught, that crashes the
+// build server-side and crashes React hydration client-side, breaking
+// the whole page rather than just the Google sign-in button.
+if (typeof window !== "undefined" && firebaseConfig.apiKey) {
+  try {
+    const app: FirebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
+    auth = getAuth(app);
+  } catch (e) {
+    console.error("[firebase] Failed to initialize:", e);
+  }
 }
 
 export { auth };
