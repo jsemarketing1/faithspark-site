@@ -36,9 +36,14 @@ const socialLinks = [
 export default function DarkNav() {
   return (
     <nav>
-      <Link href="/" className="logo">
-        <span className="f">Faith</span><span className="s">Spark</span>
-      </Link>
+      <div className="logo-wrap">
+        <Link href="/" className="logo">
+          <span className="f">Faith</span><span className="s">Spark</span>
+        </Link>
+        <a href="https://mindgardenpress.com" target="_blank" rel="noopener noreferrer" className="logo-powered">
+          Powered by mindgardenpress.com
+        </a>
+      </div>
       <div className="nav-right">
         <div className="nav-social">
           {socialLinks.map((s) => (
@@ -51,7 +56,7 @@ export default function DarkNav() {
         <Link href="/#videos">Videos</Link>
         <Link href="/devotionals">Devotionals</Link>
         <Link href="/blog">Blog</Link>
-        <Link href="/app">FaithSpark App</Link>
+        <a href="https://mindgardenpress.com/faithspark-app/">FaithSpark App</a>
         <Link href="/#download" className="nav-btn">Download Free</Link>
       </div>
       <MobileNav />

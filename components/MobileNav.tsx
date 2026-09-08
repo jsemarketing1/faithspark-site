@@ -101,12 +101,27 @@ export default function MobileNav() {
           style={{
             fontFamily: 'var(--font-cinzel), serif',
             fontSize: 26, textDecoration: 'none',
-            marginBottom: 32,
+            marginBottom: 6,
           }}
         >
           <span style={{ color: '#ffffff', fontWeight: 400 }}>Faith</span>
           <span style={{ color: '#52B788', fontWeight: 700 }}>Spark</span>
         </Link>
+        <a
+          href="https://mindgardenpress.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={close}
+          style={{
+            display: 'block',
+            fontSize: 11, letterSpacing: '0.04em',
+            color: 'rgba(255,255,255,0.5)',
+            textDecoration: 'none',
+            marginBottom: 32,
+          }}
+        >
+          Powered by mindgardenpress.com
+        </a>
 
         {/* Nav links */}
         <div style={{ width: '100%', marginBottom: 28 }}>
@@ -134,8 +149,8 @@ export default function MobileNav() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/app"
+          <a
+            href="https://mindgardenpress.com/faithspark-app/"
             onClick={close}
             style={{
               display: 'block',
@@ -149,7 +164,7 @@ export default function MobileNav() {
             }}
           >
             FaithSpark App
-          </Link>
+          </a>
         </div>
 
         {/* Download button */}

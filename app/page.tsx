@@ -80,6 +80,9 @@ export default function HomePage() {
           </a>
         </div>
         <p className="free-note">Most features are <span>completely free</span>. No credit card needed.</p>
+        <a href="https://mindgardenpress.com" target="_blank" rel="noopener noreferrer" className="hero-powered">
+          Powered by mindgardenpress.com
+        </a>
       </section>
 
       {/* ── VERSE ── */}
