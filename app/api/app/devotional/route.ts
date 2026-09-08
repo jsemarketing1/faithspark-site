@@ -42,24 +42,9 @@ export async function POST(req: NextRequest) {
     .join("");
 
   let text = "";
-  const claudeKey = process.env.CLAUDE_API_KEY ?? "";
   const geminiKey = process.env.GEMINI_API_KEY ?? "";
 
-  if (claudeKey) {
-    try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "x-api-key": claudeKey, "anthropic-version": "2023-06-01" },
-        body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1500, system: SYSTEM_PROMPT, messages: [{ role: "user", content: userPrompt }] }),
-      });
-      const d = await res.json();
-      text = d.content?.[0]?.text ?? "";
-    } catch (e) {
-      console.error("[devotional] Claude call failed:", e);
-    }
-  }
-
-  if (!text && geminiKey) {
+  if (geminiKey) {
     try {
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${geminiKey}`, {
         method: "POST",

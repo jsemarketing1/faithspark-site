@@ -47,8 +47,7 @@ export default function PrivacyPage() {
         <h2>4. AI and Third-Party Services</h2>
         <p>FaithSpark uses the following AI services to power certain features:</p>
         <ul>
-          <li><strong>Anthropic (Claude)</strong> — used to generate personalized daily devotionals and journal prayers. Your profile context and journal content is sent to Anthropic&apos;s API to generate responses.</li>
-          <li><strong>Google (Gemini)</strong> — used to power the Ask FaithSpark Bible Q&amp;A feature. Your questions are sent to Google&apos;s Gemini API.</li>
+          <li><strong>Google (Gemini)</strong> — used to power personalized daily devotionals, journal prayers, and the Ask FaithSpark Bible Q&amp;A feature. Your profile context, journal content, and questions are sent to Google&apos;s Gemini API to generate responses.</li>
         </ul>
         <p>We recommend reviewing the privacy policies of these third-party services. We send only the minimum information necessary to generate your personalized content.</p>
         <h2>5. Data Storage and Security</h2>
