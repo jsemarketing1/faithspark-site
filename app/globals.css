@@ -22,6 +22,30 @@ body { overflow-x: hidden; }
   --fs-text: #2C3E30;
   --fs-muted: #6B7B6E;
   --fs-border: #D8E4DC;
+
+  /* ── Ported-app extras (faithspark-web design system) — the site tokens
+     above cover text/muted/border/green/gold already; these fill in what
+     that ported CSS additionally expects. ── */
+  --fs-bg: var(--fs-cream);
+  --fs-surface: #ffffff;
+  --fs-hi: #EEF5F0;
+  --fs-hi2: #E3EEE7;
+  --fs-border2: #c3d6cb;
+  --fs-f1: var(--fs-gold);
+  --fs-f2: var(--fs-gold-light);
+  --fs-f3: #F5C56B;
+  --fs-dim: #9BAAA0;
+  --fs-red: #C0392B;
+  --fs-accent: #7C5CBF;
+  --fs-accentL: #A07DD4;
+  --fs-on-primary: #ffffff;
+  --fs-radius: 16px;
+  --fs-radius-lg: 20px;
+  --fs-radius-xl: 24px;
+  --fs-shadow: 0 10px 30px -15px rgba(26,43,31,0.25), 0 4px 6px -1px rgba(26,43,31,0.08);
+  --fs-shadow-sm: 0 4px 12px -4px rgba(26,43,31,0.18);
+  --fs-transition: 0.15s cubic-bezier(0.4,0,0.2,1);
+  --site-nav-height: 64px;
 }
 
 /* ============================================================
@@ -700,11 +724,21 @@ nav {
 .optin-box {
   background: linear-gradient(135deg, var(--fs-dark) 0%, var(--fs-green) 100%);
   border-radius: 16px;
-  padding: 36px 32px;
+  padding: 32px;
   text-align: center;
-  max-width: 640px;
+  max-width: 900px;
   margin: 0 auto;
 }
+.optin-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+.optin-left { flex: 1 1 300px; }
+.optin-right { flex: 1 1 280px; }
 .optin-title {
   font-family: var(--font-cinzel), serif;
   font-size: clamp(18px, 2.4vw, 24px);
@@ -716,12 +750,13 @@ nav {
   color: rgba(255,255,255,0.8) !important;
   font-size: 14px;
   line-height: 1.6;
-  max-width: 480px;
-  margin: 0 auto 22px;
+  margin: 0 0 14px;
 }
+.optin-benefits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.optin-benefits li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.9); }
 .optin-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .optin-input {
-  flex: 1 1 240px;
+  flex: 1 1 180px;
   max-width: 320px;
   box-sizing: border-box;
   border: none;
@@ -750,10 +785,10 @@ nav {
 .optin-btn:hover { background: #b5601e; transform: translateY(-1px); }
 .optin-btn:disabled { opacity: 0.7; cursor: default; transform: none; }
 .optin-error { color: #ffd7d7; font-size: 12px; margin: 12px 0 0; }
-.optin-divider { display: flex; align-items: center; gap: 10px; max-width: 320px; margin: 14px auto 10px; }
+.optin-divider { display: flex; align-items: center; gap: 10px; max-width: 320px; margin: 14px 0 10px; }
 .optin-divider span { flex: 1; height: 1px; background: rgba(255,255,255,0.2); }
 .optin-divider em { font-style: normal; font-size: 12px; color: rgba(255,255,255,0.65); }
-.optin-google { max-width: 320px; margin: 0 auto; }
+.optin-google { max-width: 320px; margin: 0; }
 .optin-google-btn {
   width: 100%;
   box-sizing: border-box;
@@ -784,6 +819,8 @@ nav {
 .optin-success-desc { color: rgba(255,255,255,0.85) !important; font-size: 14px; margin: 0; }
 @media (max-width: 480px) {
   .optin-box { padding: 28px 20px; }
+  .optin-inner { text-align: center; }
+  .optin-form, .optin-divider, .optin-google { justify-content: center; margin-left: auto; margin-right: auto; }
   .optin-input { max-width: 100%; }
 }
 
@@ -1350,4 +1387,98 @@ nav {
   .blog-breadcrumb { font-size: 11px; gap: 4px; flex-wrap: wrap; }
   .blog-tags { flex-wrap: wrap; gap: 6px; }
   .blog-related-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================================
+   FAITHSPARK APP (/app/*) — ported from faithspark-web's own
+   index.css design system, values swapped to the --fs-* tokens above.
+   ============================================================ */
+.fs-section-title { font-size: 13px; font-weight: 700; color: var(--fs-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+.fs-card {
+  background-color: var(--fs-surface);
+  border: 1px solid var(--fs-border);
+  border-radius: var(--fs-radius-lg);
+  padding: 22px;
+  box-shadow: var(--fs-shadow-sm);
+  transition: transform var(--fs-transition), box-shadow var(--fs-transition), border-color var(--fs-transition);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.fs-card:hover { transform: translateY(-1px); box-shadow: var(--fs-shadow); border-color: var(--fs-border2); }
+.fs-card-sm { padding: 16px; border-radius: var(--fs-radius); }
+.fs-btn-primary {
+  background: linear-gradient(135deg, var(--fs-f1), var(--fs-f2));
+  color: var(--fs-on-primary);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 24px;
+  border-radius: var(--fs-radius);
+  box-shadow: 0 4px 14px -2px rgba(200,118,42,0.35);
+}
+.fs-btn-primary:hover { filter: brightness(1.05); box-shadow: 0 6px 20px -2px rgba(200,118,42,0.4); }
+.fs-btn-primary:disabled { opacity: 0.6; cursor: default; filter: none; }
+.fs-btn {
+  background-color: var(--fs-surface);
+  border: 1px solid var(--fs-border);
+  color: var(--fs-text);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 14px;
+}
+.fs-btn:hover { background-color: var(--fs-hi); border-color: var(--fs-border2); }
+.fs-btn-ghost { color: var(--fs-text); font-weight: 600; padding: 8px 14px; border-radius: 12px; background: none; }
+.fs-btn-ghost:hover { background-color: var(--fs-hi); color: var(--fs-f2); }
+.fs-input {
+  width: 100%;
+  background-color: var(--fs-bg);
+  border: 1.5px solid var(--fs-border);
+  border-radius: 14px;
+  padding: 13px 16px;
+  color: var(--fs-text);
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.fs-input::placeholder { color: var(--fs-dim); }
+.fs-input:focus { outline: none; border-color: var(--fs-f1) !important; box-shadow: 0 0 0 3px rgba(200,118,42,0.18); }
+.fs-divider { height: 1px; background: linear-gradient(to right, transparent, var(--fs-border), transparent); }
+.fs-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background-color: var(--fs-surface); border: 1px solid var(--fs-border);
+  border-radius: 14px; padding: 9px 16px; font-size: 13px; font-weight: 600;
+  color: var(--fs-text); transition: all var(--fs-transition); white-space: nowrap;
+  cursor: pointer;
+}
+.fs-pill:hover { background-color: var(--fs-hi); border-color: var(--fs-f1); transform: translateY(-1px); }
+.fs-pill:disabled, .fs-pill.fs-pill-soon { opacity: 0.55; cursor: default; }
+.fs-pill:disabled:hover, .fs-pill.fs-pill-soon:hover { background-color: var(--fs-surface); border-color: var(--fs-border); transform: none; }
+.fs-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; color: #fff;
+  cursor: pointer;
+}
+.fs-label { font-size: 11px; font-weight: 700; color: var(--fs-muted); text-transform: uppercase; letter-spacing: 1.6px; margin-bottom: 8px; display: block; }
+.fs-surface { background: var(--fs-surface); border: 1px solid var(--fs-border); border-radius: var(--fs-radius); }
+.fs-content { max-width: 1080px; margin: 0 auto; padding: 32px 36px 80px; }
+.fs-nav-link { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 12px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all var(--fs-transition); }
+
+/* App hero (gradient — no Pexels dependency) */
+.fs-app-hero {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--fs-dark) 0%, var(--fs-green) 65%, #142218 100%);
+}
+
+/* ── App shell: sidebar (desktop) / drawer + topbar (mobile), offset below the site nav ── */
+.fs-app-shell { display: flex; overflow: hidden; background: var(--fs-cream); height: calc(100vh - var(--site-nav-height)); height: calc(100dvh - var(--site-nav-height)); }
+.fs-sidebar { display: none; }
+.fs-mobile-drawer { display: block; }
+.fs-topbar { display: flex; }
+.fs-main-wrap { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
+@media (min-width: 768px) {
+  .fs-sidebar { display: block; }
+  .fs-mobile-drawer { display: none; }
+  .fs-topbar { display: none; }
 }

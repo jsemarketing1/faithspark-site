@@ -1,5 +1,6 @@
 import { getApp, getApps, initializeApp, type FirebaseApp } from "firebase/app";
 import { getAuth, type Auth } from "firebase/auth";
+import { getFirestore, type Firestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -11,20 +12,22 @@ const firebaseConfig = {
 };
 
 let auth: Auth | undefined;
+let db: Firestore | undefined;
 
 // Only initialize in the browser, and only with a real config. Next.js
 // still executes "use client" component code once on the server to
-// produce the prerendered HTML, and getAuth() throws synchronously
-// whenever the config is missing/invalid — uncaught, that crashes the
-// build server-side and crashes React hydration client-side, breaking
-// the whole page rather than just the Google sign-in button.
+// produce the prerendered HTML, and getAuth()/getFirestore() throw
+// synchronously whenever the config is missing/invalid — uncaught, that
+// crashes the build server-side and crashes React hydration client-side,
+// breaking the whole page rather than just whatever needed Firebase.
 if (typeof window !== "undefined" && firebaseConfig.apiKey) {
   try {
     const app: FirebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
     auth = getAuth(app);
+    db = getFirestore(app);
   } catch (e) {
     console.error("[firebase] Failed to initialize:", e);
   }
 }
 
-export { auth };
+export { auth, db };

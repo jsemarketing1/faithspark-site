@@ -134,10 +134,8 @@ export default function MobileNav() {
               {item.label}
             </Link>
           ))}
-          <a
-            href="https://app.faithspark.app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/app"
             onClick={close}
             style={{
               display: 'block',
@@ -150,8 +148,8 @@ export default function MobileNav() {
               transition: 'color 0.2s',
             }}
           >
-            Web App
-          </a>
+            FaithSpark App
+          </Link>
         </div>
 
         {/* Download button */}
