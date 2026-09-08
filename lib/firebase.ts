@@ -1,5 +1,5 @@
-import { getApp, getApps, initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getApp, getApps, initializeApp, type FirebaseApp } from "firebase/app";
+import { getAuth, type Auth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -10,6 +10,15 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+let auth: Auth | undefined;
 
-export const auth = getAuth(app);
+// Only initialize in the browser. Next.js still executes "use client"
+// component code once on the server to produce the prerendered HTML, and
+// getAuth() throws immediately when the config is missing/invalid — which
+// would otherwise take down every statically-generated page's build.
+if (typeof window !== "undefined") {
+  const app: FirebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  auth = getAuth(app);
+}
+
+export { auth };

@@ -18,6 +18,7 @@ export default function GoogleSignInButton({
     setError("");
     setLoading(true);
     try {
+      if (!auth) throw new Error("Google sign-in isn't available right now, please use your email instead.");
       const provider = new GoogleAuthProvider();
       try {
         const result = await signInWithPopup(auth, provider);
