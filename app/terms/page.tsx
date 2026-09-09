@@ -15,7 +15,7 @@ export default function TermsPage() {
       <div className="lp-container">
         <div className="page-label">Legal</div>
         <h1>Terms of Service</h1>
-        <p className="updated">Last updated: April 1, 2026</p>
+        <p className="updated">Last updated: September 9, 2026</p>
         <div className="lp-intro">
           Please read these Terms of Service carefully before using FaithSpark. By downloading, installing, or using the app you agree to be bound by these terms.
         </div>
@@ -61,6 +61,13 @@ export default function TermsPage() {
           <li>Not impersonate other users or misrepresent your identity</li>
           <li>Not use the app to spam, advertise commercial products, or solicit money</li>
           <li>Respect the privacy and dignity of other community members</li>
+        </ul>
+        <p><strong>FaithSpark has zero tolerance for objectionable content or abusive behavior of any kind.</strong> This applies to prayer requests, comments, group posts, and any other content shared with other users.</p>
+        <p>To help keep FaithSpark safe:</p>
+        <ul>
+          <li><strong>Reporting:</strong> Every prayer request, comment, and group post has a &quot;Report&quot; option. Reported content is sent to our team for review.</li>
+          <li><strong>Blocking:</strong> You can block any user directly from the app. Once blocked, that user&apos;s content is hidden from you immediately, and we are notified of the block for review.</li>
+          <li><strong>Enforcement:</strong> We review reports and act on them within 24 hours, including removing objectionable content and, where warranted, permanently removing the offending user&apos;s access to community features or their account.</li>
         </ul>
         <h2>6. AI-Generated Content</h2>
         <p>FaithSpark uses artificial intelligence to generate devotionals, prayers, and Bible guidance. You acknowledge that:</p>
