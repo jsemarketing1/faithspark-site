@@ -49,7 +49,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     author: {
       '@type': 'Person',
       name: 'Joey',
-      description: 'Father of 6, truck driver, Assembly of God believer, and creator of FaithSpark.',
+      description: 'Father of 5, truck driver, Assembly of God believer, and creator of FaithSpark.',
       url: 'https://faithspark.app',
     },
     publisher: {
