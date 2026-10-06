@@ -116,7 +116,7 @@ export default function DailyDevotionalAppPage() {
 
       <article style={S.body}>
         <h2 style={{...S.h2, marginTop: 0}}>Why I Built a Different Kind of Devotional App</h2>
-        <p style={S.p}>I&apos;ve tried a lot of devotional apps over the years. The problem was always the same — they felt like they were written for someone else. Some generic Christian who lives a perfectly organized life with a quiet house and a cup of herbal tea. Not for a truck driver with four kids and a complicated past.</p>
+        <p style={S.p}>I&apos;ve tried a lot of devotional apps over the years. The problem was always the same — they felt like they were written for someone else. Some generic Christian who lives a perfectly organized life with a quiet house and a cup of herbal tea. Not for a truck driver with five kids and a complicated past.</p>
         <p style={S.p}>The best daily devotional app should feel like someone who knows you sat down and wrote something specifically for you this morning. That&apos;s what FaithSpark does. Spark — your AI faith companion — takes your name, your situation, what you&apos;re praying about, and writes a devotional that actually lands. Not a template. Not a canned reading. Something real.</p>
         <p style={S.p}>My wife uses it every morning with her coffee. My daughter opened it and said &quot;how does it know to say that?&quot; That&apos;s when I knew we got it right.</p>
 

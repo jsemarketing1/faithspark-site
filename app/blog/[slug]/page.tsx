@@ -135,9 +135,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           />
           <div>
             <p style={{ fontFamily: 'var(--font-cinzel)', fontSize: '17px', color: '#1A2B1F', marginBottom: '4px', fontWeight: 700 }}>Joey</p>
-            <p style={{ fontSize: '13px', color: '#C8762A', marginBottom: '12px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Truck Driver · Dad of 6 · Founder of FaithSpark</p>
+            <p style={{ fontSize: '13px', color: '#C8762A', marginBottom: '12px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Truck Driver · Dad of 5 · Founder of FaithSpark</p>
             <p style={{ fontSize: '14px', color: '#6B7B6E', lineHeight: '1.75', margin: 0 }}>
-              Joey grew up with an alcoholic father and found his way to faith through his grandmother&apos;s church as a teenager. After years on the road, a hard season in his 20s, and a life rebuilt around God, family, and Scripture, he created FaithSpark — a daily devotional app built for real people in real life. He lives in Texas with his wife Stephanie and their six kids.
+              Joey grew up with an alcoholic father and found his way to faith through his grandmother&apos;s church as a teenager. After years on the road, a hard season in his 20s, and a life rebuilt around God, family, and Scripture, he created FaithSpark, a daily devotional app built for real people in real life. He lives in Texas with his wife Stephanie and their five kids.
             </p>
           </div>
         </div>

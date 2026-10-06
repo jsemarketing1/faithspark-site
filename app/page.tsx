@@ -22,6 +22,57 @@ export const metadata: Metadata = {
   },
 };
 
+const EXPLORE_TOPICS = [
+  {
+    id: 'daily',
+    theme: 'green',
+    icon: '📖',
+    href: '/daily-devotional-app',
+    title: 'Daily Faith',
+    desc: 'A verse, a prayer, and a devotional written for you. What I lean on every morning before the truck rolls.',
+    cta: 'See the daily devotional',
+    links: [
+      { label: 'Daily Bible Verse App', href: '/daily-bible-verse-app' },
+      { label: 'Daily Prayer App', href: '/daily-prayer-app' },
+      { label: 'Daily Devotional App', href: '/daily-devotional-app' },
+      { label: 'Free Men’s Devotional App', href: '/blog/best-daily-devotional-apps-for-men' },
+      { label: 'Christian Sleep Meditation', href: '/christian-sleep-meditation' },
+    ],
+  },
+  {
+    id: 'recovery',
+    theme: 'slate',
+    icon: '🕊️',
+    href: '/christian-recovery',
+    title: 'Recovery & Healing',
+    desc: 'Recovery is a daily fight. Scripture, courses, and reflections to help you keep showing up, one day at a time.',
+    cta: 'Explore recovery resources',
+    links: [
+      { label: 'Christian Recovery Courses', href: '/christian-recovery' },
+      { label: 'AA Daily Reflections', href: '/aa-daily-reflections' },
+      { label: 'Christian Rehab Support', href: '/christian-rehab' },
+      { label: 'Scripture for Recovery', href: '/blog/scripture-for-addiction-recovery' },
+      { label: 'What the Bible Says About Addiction', href: '/blog/what-does-the-bible-say-about-addiction' },
+    ],
+  },
+  {
+    id: 'blog',
+    theme: 'gold',
+    icon: '✍️',
+    href: '/blog',
+    title: 'From the Road',
+    desc: 'Straight talk on Scripture, prayer, and faith for real life. No fluff, just what I have learned the long way.',
+    cta: 'Read all articles',
+    links: [
+      { label: 'Is an AI Devotional Biblical?', href: '/blog/is-an-ai-devotional-biblical' },
+      { label: 'Cast Your Anxiety on Him', href: '/blog/cast-all-your-anxiety-on-him' },
+      { label: 'He Won’t Let You Drown', href: '/blog/he-wont-let-you-drown' },
+      { label: 'Daily Devotional for Men', href: '/blog/daily-devotional-for-men' },
+      { label: 'Scripture to Fall Asleep', href: '/blog/how-to-use-scripture-to-fall-asleep' },
+    ],
+  },
+];
+
 export default function HomePage() {
   const latestPosts = getAllPosts().slice(0, 6);
 
@@ -252,7 +303,7 @@ export default function HomePage() {
             <p className="hp-author-name">Joey Etheridge</p>
             <p className="hp-author-role">Founder · FaithSpark · Mind Garden Press</p>
             <p className="hp-author-text">
-              I&apos;m a truck driver, husband, and dad of four from Texas who found my faith on the long haul.
+              I&apos;m a truck driver, husband, and dad of five from Texas who found my faith on the long haul.
               I built FaithSpark because I needed something real. A devotional that felt personal, a prayer life
               that actually happened, and a companion for the quiet hours on the road. Everything in this app
               comes from what I personally needed and couldn&apos;t find anywhere else.
@@ -267,7 +318,7 @@ export default function HomePage() {
           <h3 className="hp-cta-title">Take FaithSpark on the Road 🚛</h3>
           <p className="hp-cta-desc">
             AI devotionals written just for you, guided prayer, full Bible reader, sleep stories,
-            and five Christ-centered recovery courses — all free. Built by a truck driver who needed it.
+            and five Christ-centered recovery courses, all free. Built by a truck driver who needed it.
           </p>
           <div className="hp-cta-btns">
             <a href="https://apps.apple.com/app/faithspark-ai-daily-devotional/id6761655724" className="hp-cta-btn" target="_blank" rel="noopener noreferrer">
@@ -283,26 +334,42 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── SEO CONTENT BLOCK ── */}
-      <div style={{ padding: '0 24px 80px', maxWidth: 800, margin: '0 auto' }}>
-        <div className="hp-seo-block">
-          <h2 className="hp-seo-title">A Faith App Built for Every Season of Life</h2>
-          <p className="hp-seo-text">
-            FaithSpark is the free Christian faith app for people who want their faith to be real every day — not just on Sundays.
-            Looking for a <Link href="/daily-bible-verse-app">daily Bible verse app</Link> that explains the verse in plain English?
-            Want a <Link href="/daily-prayer-app">daily prayer app</Link> that actually guides you through prayer out loud?
-            Need a <Link href="/daily-devotional-app">daily devotional app</Link> that writes something personal to you every morning?
-            FaithSpark has all of it free on iOS and Android.
-            Struggling to sleep? The <Link href="/christian-sleep-meditation">Christian sleep meditation</Link> and bedtime prayer features
-            are built to help you rest in God&apos;s peace.
-            Walking through recovery? The <Link href="/christian-recovery">Christian recovery</Link> courses,
-            <Link href="/aa-daily-reflections"> AA daily reflections</Link> book, and
-            <Link href="/christian-rehab"> Christian rehab</Link> support page are all here for you.
-            And for deeper reading, the <Link href="/blog">FaithSpark devotional blog</Link> has over 30 articles
-            on Scripture, prayer, and faith for real life.
+      {/* ── EXPLORE MORE HUB ── */}
+      <section className="hp-explore">
+        <div className="hp-explore-head">
+          <h2 className="hp-explore-title">A Faith App Built for Every Season of Life</h2>
+          <p className="hp-explore-sub">
+            Good days, hard days, and the nights you can&apos;t sleep. Pick where you are and start there.
           </p>
         </div>
-      </div>
+
+        <div className="hp-explore-grid">
+          {EXPLORE_TOPICS.map((topic) => (
+            <article key={topic.id} className={`hp-explore-card hp-explore-${topic.theme}`}>
+              <Link href={topic.href} className="hp-explore-card-head">
+                <span className="hp-explore-icon" aria-hidden>{topic.icon}</span>
+                <h3 className="hp-explore-card-title">{topic.title}</h3>
+                <p className="hp-explore-card-desc">{topic.desc}</p>
+              </Link>
+
+              <ul className="hp-explore-links">
+                {topic.links.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="hp-explore-row">
+                      <span>{item.label}</span>
+                      <span className="hp-explore-arrow" aria-hidden>→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <Link href={topic.href} className="hp-explore-cta">
+                {topic.cta}<span aria-hidden> →</span>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <DarkFooter showOptin={false} />
     </div>

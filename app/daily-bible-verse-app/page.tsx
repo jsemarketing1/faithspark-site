@@ -119,7 +119,7 @@ export default function DailyBibleVerseAppPage() {
       <article style={S.body}>
         <h2 style={{...S.h2, marginTop: 0}}>Why I Built a Daily Bible Verse App</h2>
         <p style={S.p}>I&apos;ve been in church most of my life. Assembly of God, raised by my grandma who dragged me to the pew every Sunday whether I wanted to go or not. But for a long time, I&apos;d hear a verse quoted in a sermon and walk out of church with no idea what it really meant. I&apos;d look it up later and still feel like I was reading something in a foreign language.</p>
-        <p style={S.p}>That&apos;s why I made the daily Bible verse app inside FaithSpark different. It doesn&apos;t just drop a verse in your notification bar and call it a day. It explains it. Plain English. What was happening in the story. Who wrote it. What it was saying to the original readers. And what it means for you right now — driving a truck at 4am, raising four kids, trying to hold it together.</p>
+        <p style={S.p}>That&apos;s why I made the daily Bible verse app inside FaithSpark different. It doesn&apos;t just drop a verse in your notification bar and call it a day. It explains it. Plain English. What was happening in the story. Who wrote it. What it was saying to the original readers. And what it means for you right now — driving a truck at 4am, raising five kids, trying to hold it together.</p>
         <p style={S.p}>If you&apos;re someone who loves Scripture but sometimes feels lost in it, this is the app I built for you.</p>
 
         <h2 style={S.h2}>What Makes This Bible Verse App Different</h2>
