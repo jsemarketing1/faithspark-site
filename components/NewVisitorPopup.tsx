@@ -209,34 +209,37 @@ export default function NewVisitorPopup() {
           display: flex; align-items: center; justify-content: center; padding: 1.25rem;
           animation: nvp-fade .25s ease-out; }
         .nvp-card { background: linear-gradient(135deg, ${COLOR_DARK} 0%, ${COLOR_GREEN} 100%); color: #fff;
-          border-radius: 18px; padding: 2rem 1.75rem 1.5rem; max-width: 420px; width: 100%;
+          border-radius: 18px; padding: 1.6rem 1.5rem 1.15rem; max-width: 400px; width: 100%;
           text-align: center; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-          animation: nvp-pop .3s ease-out; max-height: calc(100vh - 2.5rem); overflow-y: auto; }
+          animation: nvp-pop .3s ease-out; max-height: calc(100dvh - 1.5rem); overflow-y: auto;
+          scrollbar-width: none; }
+        .nvp-card::-webkit-scrollbar { display: none; }
         .nvp-close { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.14); border: none;
           color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; line-height: 32px; }
         .nvp-badge { display: inline-block; background: ${COLOR_GOLD}; color: #fff; font-size: 0.7rem; font-weight: 700;
-          letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 999px; margin-bottom: 0.8rem; }
-        .nvp-title { font-family: ${FONT_HEADING}; font-size: 1.4rem; font-weight: 700; line-height: 1.25; margin: 0 0 0.55rem; }
-        .nvp-sub { font-size: 0.9rem; color: rgba(255,255,255,0.88); line-height: 1.55; margin: 0 0 1rem; }
-        .nvp-perks { list-style: none; margin: 0 0 1.15rem; padding: 0; display: flex; flex-direction: column;
-          gap: 0.4rem; text-align: left; }
-        .nvp-perks li { display: flex; gap: 0.5rem; font-size: 0.86rem; color: rgba(255,255,255,0.92); }
+          letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px; margin-bottom: 0.6rem; }
+        .nvp-title { font-family: ${FONT_HEADING}; font-size: 1.25rem; font-weight: 700; line-height: 1.25; margin: 0 0 0.4rem; padding: 0 1.25rem; }
+        .nvp-sub { font-size: 0.86rem; color: rgba(255,255,255,0.88); line-height: 1.45; margin: 0 0 0.8rem; }
+        .nvp-perks { list-style: none; margin: 0 0 0.9rem; padding: 0; display: flex; flex-direction: column;
+          gap: 0.28rem; text-align: left; }
+        .nvp-perks li { display: flex; gap: 0.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.92); }
         .nvp-perks li::before { content: "✓"; color: #8FE3B0; font-weight: 700; }
-        .nvp-form { display: flex; flex-direction: column; gap: 0.6rem; }
-        .nvp-input { width: 100%; box-sizing: border-box; border: none; border-radius: 10px; padding: 0.8rem 1rem;
+        .nvp-form { display: flex; flex-direction: column; gap: 0.5rem; }
+        .nvp-input { width: 100%; box-sizing: border-box; border: none; border-radius: 10px; padding: 0.7rem 1rem;
           font-size: 16px; font-family: inherit; color: ${COLOR_DARK}; }
         .nvp-submit { width: 100%; border: none; border-radius: 10px; background: ${COLOR_GOLD}; color: #fff;
-          font-weight: 700; font-size: 1rem; padding: 0.85rem 1rem; cursor: pointer; font-family: inherit;
+          font-weight: 700; font-size: 0.95rem; padding: 0.75rem 1rem; cursor: pointer; font-family: inherit;
           transition: transform .15s, filter .15s; }
         .nvp-submit:hover { filter: brightness(1.08); transform: translateY(-1px); }
         .nvp-submit:disabled { opacity: 0.7; cursor: default; transform: none; }
-        .nvp-fine { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin: 0.1rem 0 0; }
-        .nvp-or { display: flex; align-items: center; gap: 0.6rem; margin: 0.1rem 0; }
+        .nvp-fine { font-size: 0.7rem; color: rgba(255,255,255,0.6); margin: 0; }
+        .nvp-or { display: flex; align-items: center; gap: 0.6rem; margin: 0; }
         .nvp-or div { flex: 1; height: 1px; background: rgba(255,255,255,0.2); }
         .nvp-or span { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
         .nvp-google { display: flex; justify-content: center; }
-        .nvp-no { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 0.78rem; margin-top: 0.8rem;
-          cursor: pointer; text-decoration: underline; }
+        .nvp-google > div { width: 100%; }
+        .nvp-no { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 0.76rem; margin-top: 0.55rem;
+          cursor: pointer; text-decoration: underline; padding: 0.2rem; }
         .nvp-cta { display: inline-block; margin-top: 1rem; background: ${COLOR_GOLD}; color: #fff; text-decoration: none;
           font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 10px; }
         @keyframes nvp-fade { from { opacity: 0 } to { opacity: 1 } }
@@ -246,11 +249,18 @@ export default function NewVisitorPopup() {
           .nvp-backdrop { align-items: flex-end; padding: 0; background: rgba(10,20,15,0.45); }
           .nvp-card { border-radius: 18px 18px 0 0; max-width: none; padding: 1.4rem 1.15rem calc(1rem + env(safe-area-inset-bottom));
             animation: nvp-up .3s ease-out; }
-          .nvp-title { font-size: 1.2rem; padding: 0 1.5rem; }
+          .nvp-title { font-size: 1.15rem; }
           .nvp-sub { font-size: 0.86rem; margin-bottom: 0.85rem; }
           .nvp-perks { display: none; }
           .nvp-badge { margin-bottom: 0.55rem; }
-          .nvp-no { margin-top: 0.5rem; }
+          .nvp-no { margin-top: 0.4rem; }
+        }
+        @media (max-height: 720px) {
+          .nvp-perks, .nvp-fine { display: none; }
+          .nvp-card { padding-top: 1.2rem; }
+          .nvp-title { font-size: 1.12rem; }
+          .nvp-sub { font-size: 0.82rem; margin-bottom: 0.65rem; }
+          .nvp-input, .nvp-submit { padding-top: 0.6rem; padding-bottom: 0.6rem; }
         }
       `}</style>
 
