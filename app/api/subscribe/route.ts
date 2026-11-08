@@ -8,7 +8,7 @@ const UPSTREAM = "https://mindgardenpress.com/api/subscribe/";
 // and the welcome-email send — so FaithSpark signups get the exact same
 // welcome email as mindgardenpress.com signups, with no duplicated template.
 export async function POST(req: NextRequest) {
-  let body: { email?: string; company?: string };
+  let body: { email?: string; company?: string; trackingSlug?: string };
   try {
     body = await req.json();
   } catch {
@@ -27,11 +27,16 @@ export async function POST(req: NextRequest) {
 
   const ip = req.headers.get("x-forwarded-for") ?? "unknown";
 
+  // Optional tracking-link slug (e.g. "faithspark-popup") so mindgardenpress.com
+  // credits the signup to that link in the admin Tracking Links panel.
+  const rawSlug = (body.trackingSlug ?? "").trim();
+  const trackingSlug = /^[a-z0-9-]{1,64}$/i.test(rawSlug) ? rawSlug : undefined;
+
   try {
     const upstream = await fetch(UPSTREAM, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-forwarded-for": ip },
-      body: JSON.stringify({ email, company: "", source: "faithspark_site" }),
+      body: JSON.stringify({ email, company: "", source: "faithspark_site", ...(trackingSlug ? { trackingSlug } : {}) }),
     });
     const data = await upstream.json();
     return NextResponse.json(data, { status: upstream.status });

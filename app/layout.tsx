@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cinzel, Lato, Playfair_Display, Outfit } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
+import NewVisitorPopup from '@/components/NewVisitorPopup';
 
 const cinzel = Cinzel({ subsets: ['latin'], weight: ['400', '600', '700'], variable: '--font-cinzel', display: 'swap' });
 const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700'], variable: '--font-lato', display: 'swap' });
@@ -35,7 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${cinzel.variable} ${lato.variable} ${playfair.variable} ${outfit.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <NewVisitorPopup />
+      </body>
       <Script id="microsoft-clarity" strategy="afterInteractive">{`
         (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
