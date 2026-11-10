@@ -11,7 +11,7 @@ const CLICK_URL = `https://mindgardenpress.com/go/${TRACKING_SLUG}/`; // records
 const VIEW_URL = "https://mindgardenpress.com/api/track-view/"; // records a view (popup shown)
 const SUBSCRIBE_URL = "/api/subscribe/"; // proxies to mindgardenpress.com
 const SUBSCRIBE_SOURCE = "faithspark_site";
-const GUIDES_URL = "https://mindgardenpress.com/faithspark-app/downloads/";
+const LINK_BASE = "https://mindgardenpress.com"; // free resources live on mindgardenpress.com
 const FONT_HEADING = "var(--font-playfair), serif";
 const COLOR_DARK = "var(--fs-dark)";
 const COLOR_GREEN = "var(--fs-green)";
@@ -33,10 +33,13 @@ const MIN_MS_BEFORE_SCROLL_OR_EXIT = 6_000; // don't fire on a fast first scroll
 // Pages where a "join our list" popup would be redundant or unwelcome.
 const EXCLUDED_PREFIXES = ["/app", "/delete-account"];
 
+// Everything the welcome email links to, so the popup promises exactly what they get.
 const PERKS = [
-  "Family Bible Study & Sunday School printables",
-  "Free coloring pages & family activities",
-  "One encouraging devotional email a week",
+  { icon: "📄", title: "Printable Guides", desc: "Family Bible Study & Sunday School", href: "/faithspark-app/downloads/" },
+  { icon: "📖", title: "Daily Devotionals", desc: "A fresh reading every day", href: "/faithspark-app/devotionals/?view=daily" },
+  { icon: "🎧", title: "Bible in a Year", desc: "Narrated aloud, day by day", href: "/faithspark-app/bible-in-a-year/" },
+  { icon: "🎨", title: "Coloring Pages", desc: "Free printables for kids", href: "/faithspark-app/activities/coloring/" },
+  { icon: "📱", title: "Try the FaithSpark App Free", desc: "Devotionals, Bible reader, prayer journal & more", href: "/faithspark-app/" },
 ];
 
 function safeGet(store: Storage | undefined, key: string): string | null {
@@ -218,10 +221,16 @@ export default function NewVisitorPopup() {
           letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 999px; margin-bottom: 0.8rem; }
         .nvp-title { font-family: ${FONT_HEADING}; font-size: 1.4rem; font-weight: 700; line-height: 1.25; margin: 0 0 0.55rem; }
         .nvp-sub { font-size: 0.9rem; color: rgba(255,255,255,0.88); line-height: 1.55; margin: 0 0 1rem; }
-        .nvp-perks { list-style: none; margin: 0 0 1.15rem; padding: 0; display: flex; flex-direction: column;
-          gap: 0.4rem; text-align: left; }
-        .nvp-perks li { display: flex; gap: 0.5rem; font-size: 0.86rem; color: rgba(255,255,255,0.92); }
-        .nvp-perks li::before { content: "✓"; color: #8FE3B0; font-weight: 700; }
+        .nvp-perks { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; grid-template-columns: 1fr 1fr;
+          gap: 0.45rem; text-align: left; }
+        .nvp-perk { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.09);
+          border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 0.5rem 0.6rem;
+          color: #fff; text-decoration: none; }
+        a.nvp-perk:hover { background: rgba(255,255,255,0.16); }
+        .nvp-perk-icon { font-size: 1.2rem; line-height: 1; flex-shrink: 0; }
+        .nvp-perk-title { display: block; font-size: 0.8rem; font-weight: 700; line-height: 1.2; }
+        .nvp-perk-desc { display: block; font-size: 0.7rem; color: rgba(255,255,255,0.72); line-height: 1.25; margin-top: 1px; }
+        .nvp-perk-wide { grid-column: 1 / -1; border-color: ${COLOR_GOLD}; background: rgba(200,118,42,0.18); }
         .nvp-form { display: flex; flex-direction: column; gap: 0.6rem; }
         .nvp-input { width: 100%; box-sizing: border-box; border: none; border-radius: 10px; padding: 0.8rem 1rem;
           font-size: 16px; font-family: inherit; color: ${COLOR_DARK}; }
@@ -239,6 +248,7 @@ export default function NewVisitorPopup() {
           cursor: pointer; text-decoration: underline; }
         .nvp-cta { display: inline-block; margin-top: 1rem; background: ${COLOR_GOLD}; color: #fff; text-decoration: none;
           font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 10px; }
+        @media (max-height: 760px) { .nvp-perk-desc { display: none; } .nvp-perk-wide .nvp-perk-desc { display: block; } }
         @keyframes nvp-fade { from { opacity: 0 } to { opacity: 1 } }
         @keyframes nvp-pop { from { opacity: 0; transform: translateY(12px) scale(.98) } to { opacity: 1; transform: none } }
         @keyframes nvp-up { from { transform: translateY(100%) } to { transform: none } }
@@ -248,7 +258,10 @@ export default function NewVisitorPopup() {
             animation: nvp-up .3s ease-out; }
           .nvp-title { font-size: 1.2rem; padding: 0 1.5rem; }
           .nvp-sub { font-size: 0.86rem; margin-bottom: 0.85rem; }
-          .nvp-perks { display: none; }
+          .nvp-perks { gap: 0.35rem; margin-bottom: 0.8rem; }
+          .nvp-perk { padding: 0.4rem 0.5rem; }
+          .nvp-perk-desc { display: none; }
+          .nvp-perk-wide .nvp-perk-desc { display: block; }
           .nvp-badge { margin-bottom: 0.55rem; }
           .nvp-no { margin-top: 0.5rem; }
         }
@@ -269,29 +282,47 @@ export default function NewVisitorPopup() {
           <>
             <div style={{ fontSize: "2.2rem", marginBottom: "0.5rem" }}>🎁</div>
             <h2 id="nvp-title" className="nvp-title">
-              Your Free Guides Are on the Way!
+              You&apos;re In! Your Free Kit Is on the Way
             </h2>
-            <p className="nvp-sub" style={{ marginBottom: 0 }}>
-              Check your inbox for an email from FaithSpark. If you don&apos;t see it in a minute, look in your
-              Promotions or Spam folder.
+            <p className="nvp-sub">
+              Check your inbox for an email from FaithSpark (peek in Promotions or Spam if you don&apos;t see it).
+              Or jump in right now:
             </p>
-            <a href={GUIDES_URL} className="nvp-cta" onClick={dismiss} target="_blank" rel="noopener noreferrer">
-              Browse the Free Guides Now →
-            </a>
+            <div className="nvp-perks" style={{ marginBottom: 0 }}>
+              {PERKS.map((p, i) => (
+                <a
+                  key={p.title}
+                  href={LINK_BASE + p.href}
+                  className={`nvp-perk${i === PERKS.length - 1 ? " nvp-perk-wide" : ""}`}
+                  onClick={dismiss}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="nvp-perk-icon">{p.icon}</span>
+                  <span className="nvp-perk-title">{p.title}</span>
+                </a>
+              ))}
+            </div>
           </>
         ) : (
           <>
-            <span className="nvp-badge">🎁 Free Gift</span>
+            <span className="nvp-badge">🎁 Free Faith Starter Kit</span>
             <h2 id="nvp-title" className="nvp-title">
-              Free Printable Bible Study Guides for Your Family
+              Get All of This Free
             </h2>
             <p className="nvp-sub">
-              Enter your email and we&apos;ll send them to you right now, free.
+              Join our free newsletter and we&apos;ll email you instant access to everything below.
             </p>
 
             <ul className="nvp-perks">
-              {PERKS.map((p) => (
-                <li key={p}>{p}</li>
+              {PERKS.map((p, i) => (
+                <li key={p.title} className={`nvp-perk${i === PERKS.length - 1 ? " nvp-perk-wide" : ""}`}>
+                  <span className="nvp-perk-icon">{p.icon}</span>
+                  <span>
+                    <span className="nvp-perk-title">{p.title}</span>
+                    <span className="nvp-perk-desc">{p.desc}</span>
+                  </span>
+                </li>
               ))}
             </ul>
 
@@ -325,7 +356,7 @@ export default function NewVisitorPopup() {
               />
 
               <button type="submit" disabled={status === "loading"} className="nvp-submit">
-                {status === "loading" ? "Sending…" : "Send Me the Free Guides"}
+                {status === "loading" ? "Sending…" : "Send Me My Free Kit"}
               </button>
 
               {status === "error" && (
